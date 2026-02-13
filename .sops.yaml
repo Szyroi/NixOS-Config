@@ -1,0 +1,7 @@
+keys:
+  - &szyroi age1cgwxn0ac9gzyc6kda6dfqj8p9g25kkggdntty2hv32ljtw8h3u0quk9024
+creation_rules:
+  - path_regex: home/secrets/secrets.yaml$
+    key_groups:
+      - age:
+          - *szyroi
