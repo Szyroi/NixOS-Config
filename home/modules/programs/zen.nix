@@ -1,6 +1,6 @@
 {inputs, ...}: {
   imports = [
-    inputs.zen-browser.homeModules.beta
+    ./zen-browser-fixed.nix
   ];
 
   programs.zen-browser.enable = true;

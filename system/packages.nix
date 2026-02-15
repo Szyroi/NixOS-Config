@@ -46,6 +46,7 @@
 
     #Java
     jdk
+    javaPackages.compiler.openjdk25
     jdt-language-server
     gradle
 

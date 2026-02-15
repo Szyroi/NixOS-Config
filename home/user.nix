@@ -30,31 +30,30 @@
   stylix = {
     enable = true;
 
-    # Wallpaper als Quelle für die Farben (empfohlen)
     image = builtins.path {path = ./wallpapers/WP1.jpg;};
 
-    polarity = "dark"; # oder "light"
+    polarity = "dark";
 
     base16Scheme = {
-      # === Hintergrund Ebenen (dein neutraler Dark Background) ===
+      # === Hintergrund Ebenen  ===
       base00 = "111113"; # Default Background
       base01 = "1a1b1f"; # Lighter Background
       base02 = "23242a"; # Selection Background
       base03 = "333232"; # Comments, Invisibles, Line Highlighting  (Vercel)
 
       # === Text Hierarchie ===
-      base04 = "8b949e"; # Dark Foreground (Statusbars)
-      base05 = "dce3ea"; # Default Foreground, Caret, Operators (Vercel text)
+      base04 = "8754f2"; # Dark Foreground (Statusbars)
+      base05 = "ffffff"; # Default Foreground, Caret, Operators (Vercel text)
       base06 = "f2f6fa"; # Light Foreground
       base07 = "ffffff"; # Light Background (not often used)
 
-      # === Syntax (wie Vercel Dark) ===
-      base08 = "dce3ea"; # Variables / Tags (default text color)
+      # === Syntax ===
+      base08 = "6346ff"; # Variables / Tags (default text color)
       base09 = "43aaf9"; # Numbers, Booleans, Constants 🔵
-      base0A = "bf7af0"; # Classes / Data Types 🔵
+      base0A = "43aaf9"; # Classes / Data Types 🔵
       base0B = "bf7af0"; # Strings 🟢
       base0C = "43aaf9"; # Support / Regex / Escapes 🔵
-      base0D = "bf7af0"; # Functions / Methods 🟣
+      base0D = "8754f2"; # Functions / Methods 🟣
       base0E = "f75f8f"; # Keywords 💗
       base0F = "e61f44"; # Errors / Deprecated 🔴
     };
