@@ -14,30 +14,7 @@ in {
 
   services = {
     hyprpaper = {
-      enable = true;
-      settings = let
-        path = "~/Pictures/WP2.png";
-      in {
-        splash = false;
-        ipc = true;
-        preload = [
-          "${path}"
-        ];
-        wallpaper = [
-          {
-            monitor = "DP-4";
-            path = "${path}";
-          }
-          {
-            monitor = "DP-3";
-            path = "${path}";
-          }
-          {
-            monitor = "DP-2";
-            path = "${path}";
-          }
-        ];
-      };
+      enable = lib.mkDefault true;
     };
   };
 

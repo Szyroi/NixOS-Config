@@ -39,11 +39,11 @@
       base00 = "111113"; # Default Background
       base01 = "1a1b1f"; # Lighter Background
       base02 = "23242a"; # Selection Background
-      base03 = "333232"; # Comments, Invisibles, Line Highlighting  (Vercel)
+      base03 = "333232"; # Comments, Invisibles, Line Highlighting
 
       # === Text Hierarchie ===
       base04 = "8754f2"; # Dark Foreground (Statusbars)
-      base05 = "ffffff"; # Default Foreground, Caret, Operators (Vercel text)
+      base05 = "ffffff"; # Default Foreground, Caret, Operators
       base06 = "f2f6fa"; # Light Foreground
       base07 = "ffffff"; # Light Background (not often used)
 
@@ -80,11 +80,13 @@
   stylix.targets.starship.enable = true;
   stylix.targets.kitty.enable = true;
   stylix.targets.vesktop.enable = true;
+  stylix.targets.obsidian.colors.enable = true;
 
   stylix.targets.hyprland.colors.enable = true;
   stylix.targets.kitty.colors.enable = true;
   stylix.targets.starship.colors.enable = true;
   stylix.targets.wofi.colors.enable = true;
+  stylix.targets.obsidian.enable = true;
 
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

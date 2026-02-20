@@ -6,6 +6,7 @@
 }: let
   system = with pkgs; [
     vim
+    helix
     btop
     htop
     eza
