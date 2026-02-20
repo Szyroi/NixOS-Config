@@ -16,7 +16,7 @@ in {
     hyprpaper = {
       enable = true;
       settings = let
-        path = "~/Pictures/WP1.jpg";
+        path = "~/Pictures/WP2.png";
       in {
         splash = false;
         ipc = true;
@@ -62,7 +62,7 @@ in {
     "$terminal" = "kitty";
     "$fileManager" = "thunar";
     "$menu" = "wofi --show drun";
-    "$browser" = "zen";
+    "$browser" = "zen-beta";
 
     #################
     ### AUTOSTART ###

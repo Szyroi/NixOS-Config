@@ -48,7 +48,7 @@
     jdk
     javaPackages.compiler.openjdk25
     jdt-language-server
-    gradle
+    maven
 
     #Assembly
     nasm

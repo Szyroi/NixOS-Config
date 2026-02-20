@@ -18,8 +18,10 @@
     };
 
     bashrcExtra = ''
-      if command -v fastfetch >/dev/null 2>&1; then
-        fastfetch
+      if [[ $- == *i* ]]; then
+        if [[ "$TERM_PROGRAM" != "zed" ]] && [[ "$TERM_PROGRAM" != "Zed" ]] && [[ "$TERM" != *zed* ]]; then
+          command -v fastfetch >/dev/null 2>&1 && fastfetch
+        fi
       fi
       eval "$(starship init bash)"
     '';
@@ -42,13 +44,6 @@
     shellInit = ''
       set -g fish_greeting ""
       starship init fish | source
-    '';
-
-    interactiveShellInit = ''
-      # fastfetch nur in interaktiven shells
-      if status is-interactive
-        fastfetch
-      end
     '';
 
     functions = {

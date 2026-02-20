@@ -30,7 +30,7 @@
   stylix = {
     enable = true;
 
-    image = builtins.path {path = ./wallpapers/WP1.jpg;};
+    image = builtins.path {path = ./wallpapers/WP2.png;};
 
     polarity = "dark";
 
