@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   username,
   ...
 }: {
@@ -147,6 +148,7 @@
     yazi
     tmux
     stoat-desktop
+    inputs.kew.packages.${pkgs.stdenv.hostPlatform.system}.default
     (pkgs.symlinkJoin {
       name = "element-desktop";
       paths = [pkgs.element-desktop];
@@ -167,6 +169,8 @@
   };
 
   fonts.fontconfig.enable = true;
+
+  xdg.portal.enable = lib.mkForce false;
 
   home.sessionVariables = {
     XCURSOR_THEME = "Bibata-Modern-Classic";
