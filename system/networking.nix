@@ -3,6 +3,18 @@
   lib,
   ...
 }: {
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      workstation = true;
+    };
+  };
+
+  hardware.enableRedistributableFirmware = true;
+
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;
@@ -11,8 +23,14 @@
 
       allowedTCPPorts = [
         22
+        80
+        443
       ];
-      allowedUDPPorts = [5353];
+      allowedUDPPorts = [
+        53
+        5353
+        24727
+      ];
     };
   };
 }
