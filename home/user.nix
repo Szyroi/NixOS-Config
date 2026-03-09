@@ -57,6 +57,11 @@
             auto-format = true;
             language-servers = ["tinymist"];
           }
+          {
+            name = "nix";
+            auto-format = true;
+            language-servers = ["nixd"];
+          }
         ];
       };
     };
@@ -142,6 +147,7 @@
     yazi
     tmux
     stoat-desktop
+    element-desktop
   ];
 
   home.pointerCursor = {

@@ -7,15 +7,15 @@
   services = {
     xserver = {
       enable = true;
-      videoDriver = "nvidia";
+      videoDrivers = ["nvidia" "amdgpu"];
       xkb = {
         layout = "de";
         variant = "";
       };
     };
 
-    pcscd.enable = true;
     dbus.enable = true;
+    pcscd.enable = true;
     udisks2.enable = true;
     openssh.enable = true;
     blueman.enable = true;

@@ -6,7 +6,6 @@
 }: let
   system = with pkgs; [
     vim
-
     btop
     htop
     eza
@@ -21,6 +20,8 @@
     git-filter-repo
     age
     sops
+    gnome-keyring
+    libsecret
   ];
 
   media = with pkgs; [
