@@ -78,6 +78,7 @@
         specialArgs = specialArgs;
         modules = [
           nixDefaultsModule
+          inputs.stylix.nixosModules.stylix
           ./hosts/desktop/configuration.nix
 
           home-manager.nixosModules.home-manager
@@ -89,7 +90,6 @@
             home-manager.extraSpecialArgs = specialArgs;
             home-manager.sharedModules = [
               inputs.nixvim.homeModules.nixvim
-              inputs.stylix.homeModules.stylix
               inputs.sops-nix.homeModules.sops
             ];
           }
@@ -101,6 +101,7 @@
         specialArgs = specialArgs;
         modules = [
           nixDefaultsModule
+          inputs.stylix.nixosModules.stylix
           ./hosts/laptop/configuration.nix
 
           home-manager.nixosModules.home-manager

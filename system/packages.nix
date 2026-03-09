@@ -38,6 +38,7 @@
     jetbrains.idea
     jetbrains.clion
     seahorse
+    parabolic
   ];
 
   development = with pkgs; [
