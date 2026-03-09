@@ -37,6 +37,7 @@
     texliveFull
     jetbrains.idea
     jetbrains.clion
+    seahorse
   ];
 
   development = with pkgs; [
