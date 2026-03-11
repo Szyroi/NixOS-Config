@@ -22,11 +22,11 @@
       cursor_shape = "beam";
       cursor_shape_unfocused = "beam";
       cursor_beam_thickness = 4;
-      cursor_blink = true;
       cursor_blink_interval = 0.5;
       cursor_trail = 3;
     };
     extraConfig = ''
+      cursor_blink yes
       cursor_trail_decay 0.1 0.4
       shell ${pkgs.fish}/bin/fish -c 'fastfetch; exec fish'
 

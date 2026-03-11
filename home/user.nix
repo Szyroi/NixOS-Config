@@ -90,6 +90,7 @@
 
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    playerctl
     easyeffects
     obsidian
     vesktop
@@ -101,7 +102,7 @@
     yazi
     tmux
     stoat-desktop
-    inputs.kew.packages.${pkgs.stdenv.hostPlatform.system}.default
+
     (pkgs.symlinkJoin {
       name = "element-desktop";
       paths = [pkgs.element-desktop];

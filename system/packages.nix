@@ -39,6 +39,8 @@
     jetbrains.clion
     seahorse
     parabolic
+    kew
+    pavucontrol
   ];
 
   development = with pkgs; [
