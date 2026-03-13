@@ -11,7 +11,7 @@ in {
   imports = [
     ./hardware-configuration.nix
 
-    ../../system/default.nix
+    ../../modules/system/default.nix
   ];
 
   fileSystems."/mnt/windows3" = {

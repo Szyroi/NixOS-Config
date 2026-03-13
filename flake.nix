@@ -61,7 +61,6 @@
         inputs.nixvim.homeModules.nixvim
         inputs.stylix.homeModules.stylix
         inputs.sops-nix.homeModules.sops
-
         ./home/user.nix
       ];
     };
@@ -87,25 +86,6 @@
               inputs.nixvim.homeModules.nixvim
               inputs.sops-nix.homeModules.sops
             ];
-          }
-        ];
-      };
-
-      laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = specialArgs;
-        modules = [
-          nixDefaultsModule
-          inputs.stylix.nixosModules.stylix
-          ./hosts/laptop/configuration.nix
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "hm-bak";
-            home-manager.users.${username} = import ./home/user.nix;
-            home-manager.extraSpecialArgs = specialArgs;
           }
         ];
       };
