@@ -33,8 +33,8 @@
     enable = true;
     shellAliases = {
       uwu = "sudo";
-      rebuild = "sudo nixos-rebuild switch --flake ~/nix#desktop";
-      update = "sudo nix flake update --flake ~/nix";
+      rebuild = "sudo nixos-rebuild switch --flake ~/nix-config#desktop";
+      update = "sudo nix flake update --flake ~/nix-config";
       java-Main = "javac Main.java && java Main.java";
       java-main = "javac main.java && java main.java";
       java-app = "javac app.java && java app.java";

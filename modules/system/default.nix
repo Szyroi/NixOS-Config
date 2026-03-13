@@ -8,7 +8,7 @@
     ./services.nix
     ./desktop.nix
     ./users.nix
-    ./packages/default.nix
+    ../../packages/default.nix
     ./stylix.nix
   ];
 }
