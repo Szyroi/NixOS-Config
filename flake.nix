@@ -44,25 +44,12 @@
   } @ inputs: let
     system = "x86_64-linux";
     username = "szyroi";
-
-    # Gemeinsame SpecialArgs für beide Konfigurationen
-    specialArgs = {inherit inputs system username;};
+    pkgs = nixpkgs.legacyPackages.${system};
+    specialArgs = {inherit inputs system username;}; # Gemeinsame SpecialArgs für beide Konfigurationen
 
     # NixOS Defaults
-    nixDefaultsModule = {pkgs, ...}: {
+    nixDefaultsModule = {...}: {
       nixpkgs.config.allowUnfree = true;
-    };
-
-    homeManagerConfiguration = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = specialArgs;
-      modules = [
-        # Home-Manager spezifische Module
-        inputs.nixvim.homeModules.nixvim
-        inputs.stylix.homeModules.stylix
-        inputs.sops-nix.homeModules.sops
-        ./home/user.nix
-      ];
     };
   in {
     # NixOS Konfigurationen
@@ -91,10 +78,6 @@
       };
     };
 
-    homeConfigurations = {
-      ${username} = homeManagerConfiguration;
-    };
-
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    formatter.${system} = pkgs.alejandra;
   };
 }
