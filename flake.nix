@@ -50,6 +50,7 @@
     # NixOS Defaults
     nixDefaultsModule = {...}: {
       nixpkgs.config.allowUnfree = true;
+      nix.settings.experimental-features = ["nix-command" "flakes"];
     };
   in {
     # NixOS Konfigurationen
@@ -60,6 +61,7 @@
         modules = [
           nixDefaultsModule
           inputs.stylix.nixosModules.stylix
+          ./modules/system/stylix.nix
           ./hosts/desktop/configuration.nix
 
           home-manager.nixosModules.home-manager
