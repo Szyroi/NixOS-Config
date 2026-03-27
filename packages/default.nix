@@ -75,6 +75,10 @@
 
     #Rust
     rustup
+    rustc
+    cargo
+    rustfmt
+    clippy
   ];
 
   allPackages = system ++ media ++ development;

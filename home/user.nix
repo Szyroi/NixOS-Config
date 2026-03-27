@@ -101,7 +101,7 @@
     bitwarden-desktop
     yazi
     tmux
-    stoat-desktop
+    #stoat-desktop
     element-desktop
   ];
 
