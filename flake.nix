@@ -53,38 +53,36 @@
       nix.settings.experimental-features = ["nix-command" "flakes"];
     };
   in {
-      # devShells
+    # devShells
 
-  devShells.${system}.tauri = pkgs.mkShell {
-    buildInputs = with pkgs; [
-      bun
-      nodejs
+    devShells.${system}.tauri = pkgs.mkShell {
+      buildInputs = with pkgs; [
+        bun
+        nodejs
 
-      # Rust
-      rustc
-      cargo
+        # Rust
+        rustc
+        cargo
 
-      # Tauri deps
-      pkg-config
-      openssl
-      glib
-      gtk3
-      webkitgtk
+        # Tauri deps
+        pkg-config
+        openssl
+        glib
+        gtk3
+        webkitgtk
 
-      # optional aber hilfreich
-      clang
-    ];
+        # optional aber hilfreich
+        clang
+      ];
 
-    shellHook = ''
-      export PKG_CONFIG_PATH=${pkgs.openssl.dev}/lib/pkgconfig
-      export LD_LIBRARY_PATH=${pkgs.webkitgtk}/lib
-      export OPENSSL_DIR=${pkgs.openssl.dev}
+      shellHook = ''
+        export PKG_CONFIG_PATH=${pkgs.openssl.dev}/lib/pkgconfig
+        export LD_LIBRARY_PATH=${pkgs.webkitgtk}/lib
+        export OPENSSL_DIR=${pkgs.openssl.dev}
 
-      echo "Tauri dev shell ready 🚀"
-    '';
-  };
-
-
+        echo "Tauri dev shell ready 🚀"
+      '';
+    };
 
     # NixOS Konfigurationen
     nixosConfigurations = {

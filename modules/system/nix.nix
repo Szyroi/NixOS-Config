@@ -6,6 +6,7 @@
   ...
 }: {
   nix = {
+    enable = true;
     settings = {
       auto-optimise-store = true;
       experimental-features = [

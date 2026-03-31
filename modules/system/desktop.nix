@@ -4,23 +4,13 @@
   lib,
   ...
 }: {
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks -t -c ${config.programs.hyprland.package}/bin/start-hyprland";
-        user = "greeter";
-      };
-    };
-  };
+  services.xserver.enable = true;
 
-  users.users.greeter = {
-    isSystemUser = true;
-    group = "greeter";
-    home = "/var/lib/greeter";
-    createHome = true;
+  services.displayManager.sddm = {
+    enable = true;
+    enableHidpi = true;
+    wayland.enable = true;
   };
-  users.groups.greeter = {};
 
   xdg.portal = {
     enable = true;
