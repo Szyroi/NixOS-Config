@@ -13,7 +13,7 @@
         "flakes"
       ];
       max-jobs = "auto";
-      trusted-users = ["root" username];
+      trusted-users = ["root" "szyroi"];
       substituters = [
         "https://cache.nixos.org"
         "https://nix-community.cachix.org"

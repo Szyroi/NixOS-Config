@@ -101,8 +101,9 @@
     bitwarden-desktop
     yazi
     tmux
-    #stoat-desktop
+    thunderbird
     element-desktop
+    pawn-appetit
   ];
 
   home.pointerCursor = {
