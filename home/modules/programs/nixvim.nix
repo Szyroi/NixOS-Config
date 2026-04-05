@@ -147,29 +147,6 @@
       };
     };
 
-    extraPackages = with pkgs; [
-      # Formatter/Linter
-      alejandra # Nix
-      nixpkgs-fmt # Alternative für Nix
-      stylua # Lua
-      rustfmt # Rust
-      nodePackages.prettier # JS/TS/CSS/HTML
-      jdk25 # Java
-
-      # Tools
-      ripgrep # Für Telescope live_grep
-      fd # Für Telescope find_files
-      lsof # Für Debugging
-
-      # LSPs
-      lua-language-server
-      rust-analyzer
-      nil # Nix LSP
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted # HTML/CSS/JSON
-      yaml-language-server
-    ];
-
     keymaps = [
       # Navigation
       {

@@ -22,6 +22,16 @@
     sops
     gnome-keyring
     libsecret
+    # Tauri deps
+    pkg-config
+    openssl
+    glib
+    gtk3
+    webkitgtk_6_0
+    librsvg
+    bun
+    nodejs_25
+    keepassxc
   ];
 
   media = with pkgs; [

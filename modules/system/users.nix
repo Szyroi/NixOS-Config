@@ -11,7 +11,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
-      "nix"
+      "nixbld"
       "pcscd"
       "scard"
     ];

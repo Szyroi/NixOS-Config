@@ -69,15 +69,13 @@
         openssl
         glib
         gtk3
-        webkitgtk
-
-        # optional aber hilfreich
-        clang
+        webkitgtk_6_0
+        librsvg
       ];
 
       shellHook = ''
         export PKG_CONFIG_PATH=${pkgs.openssl.dev}/lib/pkgconfig
-        export LD_LIBRARY_PATH=${pkgs.webkitgtk}/lib
+        export LD_LIBRARY_PATH=${pkgs.webkitgtk_6_0}/lib
         export OPENSSL_DIR=${pkgs.openssl.dev}
 
         echo "Tauri dev shell ready 🚀"

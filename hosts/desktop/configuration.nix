@@ -42,11 +42,5 @@ in {
     ];
   };
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-  ];
-
   system.stateVersion = "25.05";
 }

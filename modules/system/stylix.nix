@@ -29,19 +29,28 @@
 
     fonts = {
       monospace = {
-        package = pkgs.jetbrains-mono;
-        name = "JetBrains Mono";
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font";
       };
 
       sansSerif = {
-        package = pkgs.inter;
-        name = "Inter";
+        package = pkgs.geist-font;
+        name = "Geist";
       };
 
       serif = {
         package = pkgs.noto-fonts;
         name = "Noto Serif";
       };
+
+      emoji = {
+        package = pkgs.noto-fonts-color-emoji;
+        name = "Noto Color Emoji";
+      };
     };
   };
+
+  fonts.packages = with pkgs; [
+    noto-fonts-cjk-sans
+  ];
 }
