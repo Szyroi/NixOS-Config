@@ -8,7 +8,7 @@
     ./programs/fastfetch.nix
     ./programs/nixvim.nix
     ./programs/wofi.nix
-    ./prgramms/helix.nix
+    ./programs/helix.nix
     ./theme/gtk.nix
     ./wm/hyprland.nix
     ./shell/sh.nix

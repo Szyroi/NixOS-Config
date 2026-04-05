@@ -33,6 +33,17 @@
     starship.enable = true;
     kitty.enable = true;
     vesktop.enable = true;
+    zed = {
+      enable = true;
+      colors.enable = true;
+    };
+    gtk = {
+      enable = true;
+      colors.enable = true;
+    };
+    qt = {
+      enable = true;
+    };
 
     obsidian = {
       enable = true;
