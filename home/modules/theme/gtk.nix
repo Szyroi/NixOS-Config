@@ -7,8 +7,8 @@
   gtk = {
     enable = true;
     iconTheme = {
-      name = lib.mkDefault "Papirus-Dark";
-      package = lib.mkDefault pkgs.papirus-icon-theme;
+      name = lib.mkDefault "Adwaita";
+      package = lib.mkDefault pkgs.adwaita-icon-theme;
     };
 
     gtk4.theme = null;

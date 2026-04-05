@@ -33,10 +33,6 @@
     starship.enable = true;
     kitty.enable = true;
     vesktop.enable = true;
-    zed = {
-      enable = true;
-      colors.enable = true;
-    };
     gtk = {
       enable = true;
       colors.enable = true;
@@ -50,6 +46,10 @@
       colors.enable = true;
     };
 
+    zed = {
+      enable = false;
+      colors.enable = false;
+    };
     zen-browser.enable = false;
   };
 
@@ -67,6 +67,7 @@
     thunderbird
     element-desktop
     pawn-appetit
+    nautilus
   ];
 
   home.pointerCursor = {

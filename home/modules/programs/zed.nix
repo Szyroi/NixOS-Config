@@ -66,6 +66,12 @@
         cursor_shape = "bar";
       };
 
+      theme = {
+        mode = "dark";
+        dark = lib.mkDefault "Yūgen - Kage";
+        light = lib.mkDefault "Yūgen - Kage";
+      };
+
       icon_theme = {
         mode = "dark";
         light = "Colored Zed Icons Theme Light";
@@ -139,7 +145,7 @@
           allow_rewrap = "in_comments";
           show_wrap_guides = true;
           soft_wrap = "none";
-          auto_indent = true;
+          auto_indent = "syntax_aware";
           auto_indent_on_paste = true;
           indent_guides = {
             active_line_width = 2;
