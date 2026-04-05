@@ -6,40 +6,18 @@
 }: {
   gtk = {
     enable = true;
-
-    theme = {
-      name = lib.mkDefault "Colloid-Dark";
-      package = lib.mkDefault pkgs.colloid-gtk-theme;
-    };
-
-    iconTheme = {
-      name = lib.mkDefault "Papirus-Dark";
-      package = lib.mkDefault pkgs.papirus-icon-theme;
-    };
-
-    font = {
-      name = lib.mkDefault "Inter";
-      package = lib.mkDefault pkgs.inter;
-      size = 12;
-    };
-
+    theme = null;
+    iconTheme = null;
+    font = null;
     gtk3.extraConfig."gtk-application-prefer-dark-theme" = 1;
-    gtk4 = {
-      theme = null;
-      extraConfig = {
-        "gtk-application-prefer-dark-theme" = 1;
-      };
-    };
+    gtk4.extraConfig."gtk-application-prefer-dark-theme" = 1;
   };
 
   qt = {
     enable = true;
-    platformTheme.name = lib.mkDefault "gtk";
-    style = {
-      name = lib.mkDefault "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
+    platformTheme.name = "gtk";
+    style = null;
   };
 
-  home.packages = with pkgs; [adw-gtk3];
+  home.packages = with pkgs; [];
 }
