@@ -10,7 +10,11 @@ in {
     hyprpaper
   ];
 
-  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = null;
+    portalPackage = null;
+  };
 
   services = {
     hyprpaper = {

@@ -68,6 +68,23 @@
     element-desktop
     pawn-appetit
     nautilus
+    #----Tauri-----
+    rustc
+    cargo
+    rustfmt
+    rust-analyzer
+    clippy
+    webkitgtk_6_0
+    pkg-config
+    openssl
+    glib
+    gtk3
+    librsvg
+    wrapGAppsHook4
+    bun
+    nodejs_25
+    cairo
+    libsoup_3
   ];
 
   home.pointerCursor = {
