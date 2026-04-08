@@ -5,12 +5,11 @@
   ...
 }: let
   user = config.users.users.${username};
-  uid = user.uid;
-  gid = config.users.groups.${user.group}.gid;
+  uid = toString user.uid;
+  gid = toString config.users.groups.${user.group}.gid;
 in {
   imports = [
     ./hardware-configuration.nix
-
     ../../modules/system/default.nix
   ];
 
@@ -21,8 +20,8 @@ in {
       "nofail"
       "x-systemd.automount"
       "x-systemd.device-timeout=2s"
-      "uid=${toString uid}"
-      "gid=${toString gid}"
+      "uid=${uid}"
+      "gid=${gid}"
       "dmask=027"
       "fmask=137"
     ];
@@ -35,8 +34,8 @@ in {
       "nofail"
       "x-systemd.automount"
       "x-systemd.device-timeout=2s"
-      "uid=${toString uid}"
-      "gid=${toString gid}"
+      "uid=${uid}"
+      "gid=${gid}"
       "dmask=027"
       "fmask=137"
     ];
