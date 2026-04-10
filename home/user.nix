@@ -12,7 +12,12 @@
 
   imports = [
     ./modules/default.nix
+    ./tauri.nix
   ];
+
+  programs.tauri = {
+    enable = true;
+  };
 
   programs = {
     quickshell = {
@@ -53,7 +58,10 @@
     zen-browser.enable = false;
   };
 
+  services.gnome-keyring.enable = true;
+
   home.packages = with pkgs; [
+    gcr
     playerctl
     easyeffects
     obsidian

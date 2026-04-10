@@ -7,7 +7,6 @@
   services = {
     xserver = {
       enable = true;
-      videoDrivers = ["nvidia" "amdgpu"];
       xkb = {
         layout = "de";
         variant = "";

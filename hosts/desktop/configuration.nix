@@ -3,41 +3,39 @@
   pkgs,
   username,
   ...
-}: let
-  user = config.users.users.${username};
-  uid = toString user.uid;
-  gid = toString config.users.groups.${user.group}.gid;
-in {
+}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/system/default.nix
   ];
 
-  fileSystems."/mnt/windows3" = {
+  security.pam.services.login.enableGnomeKeyring = true;
+
+  fileSystems."/run/media/${username}/windows3" = {
     device = "/dev/nvme0n1p3";
     fsType = "ntfs3";
     options = [
       "nofail"
       "x-systemd.automount"
       "x-systemd.device-timeout=2s"
-      "uid=${uid}"
-      "gid=${gid}"
-      "dmask=027"
-      "fmask=137"
+      "uid=1000"
+      "gid=100"
+      "dmask=000"
+      "fmask=000"
     ];
   };
 
-  fileSystems."/mnt/windows5" = {
+  fileSystems."/run/media/${username}/windows5" = {
     device = "/dev/nvme0n1p5";
     fsType = "ntfs3";
     options = [
       "nofail"
       "x-systemd.automount"
       "x-systemd.device-timeout=2s"
-      "uid=${uid}"
-      "gid=${gid}"
-      "dmask=027"
-      "fmask=137"
+      "uid=1000"
+      "gid=100"
+      "dmask=000"
+      "fmask=000"
     ];
   };
 

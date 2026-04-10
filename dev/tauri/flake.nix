@@ -20,47 +20,34 @@
             # Rust
             rustc
             cargo
-            rust-analyzer
             cargo-tauri
 
             # Frontend
             bun
-            nodejs
 
             # Build tools
             pkg-config
-            cmake
 
             # Tauri deps
             gtk3
             webkitgtk_4_1
-            glib
-            cairo
-            pango
-            harfbuzz
             openssl
             libsoup_3
+            wrapGAppsHook4
             librsvg
-            libappindicator-gtk3
-            at-spi2-atk
-            xdotool
-
-            # GStreamer
-            gst_all_1.gstreamer
-            gst_all_1.gst-plugins-base
-            gst_all_1.gst-plugins-good
-            gst_all_1.gst-plugins-bad
-            gst_all_1.gst-plugins-ugly
-            gst_all_1.gst-libav
           ];
 
-          RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
-
           shellHook = ''
+
             export GDK_BACKEND=x11
             export XDG_DATA_DIRS="$GSETTINGS_SCHEMAS_PATH"
-            export GST_PLUGIN_SYSTEM_PATH_1_0="${pkgs.gst_all_1.gst-plugins-base}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-good}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-bad}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-ugly}/lib/gstreamer-1.0"
-            echo "🚀 Tauri Dev Shell ready (${system})"
+            export WEBKIT_DISABLE_COMPOSITING_MODE=1
+            export GSK_RENDERER=cairo
+            export GST_PLUGIN_SYSTEM_PATH_1_0="${pkgs.gst_all_1.gstreamer}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-base}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-good}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-bad}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-plugins-ugly}/lib/gstreamer-1.0:${pkgs.gst_all_1.gst-libav}/lib/gstreamer-1.0"
+
+
+            echo "Tauri Dev Shell ready (${system})"
+            fish
           '';
         };
       }

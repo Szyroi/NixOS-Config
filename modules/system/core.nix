@@ -15,10 +15,11 @@
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
 
+    # Graphics Driver
+    GBM_BACKEND = "nvidia-drm";
+
     JAVA_HOME = "${pkgs.jdk}";
   };
-
-  services.gnome.gnome-keyring.enable = true;
 
   security = {
     polkit.enable = true;
