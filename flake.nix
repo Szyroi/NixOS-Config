@@ -84,31 +84,30 @@
           }
         ];
       };
-    };
+      laptop = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = specialArgs;
+        modules = [
+          nixDefaultsModule
+          inputs.stylix.nixosModules.stylix
 
-    laptop = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = specialArgs;
-      modules = [
-        nixDefaultsModule
-        inputs.stylix.nixosModules.stylix
+          ./modules/nixos/core/stylix.nix
+          ./hosts/laptop/configuration.nix
 
-        ./modules/nixos/core/stylix.nix
-        ./hosts/laptop/configuration.nix
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "hm-bak";
-          home-manager.users.${username} = import ./home/user.nix;
-          home-manager.extraSpecialArgs = specialArgs;
-          home-manager.sharedModules = [
-            inputs.nixvim.homeModules.nixvim
-            inputs.sops-nix.homeModules.sops
-          ];
-        }
-      ];
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hm-bak";
+            home-manager.users.${username} = import ./home/user.nix;
+            home-manager.extraSpecialArgs = specialArgs;
+            home-manager.sharedModules = [
+              inputs.nixvim.homeModules.nixvim
+              inputs.sops-nix.homeModules.sops
+            ];
+          }
+        ];
+      };
     };
 
     formatter.${system} = pkgs.alejandra;

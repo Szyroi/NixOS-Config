@@ -1,8 +1,12 @@
 {...}: {
   imports = [
+    ./nix/options.nix
+    ./zswap/default.nix
+    ./xdg/default.nix
+    ./security/default.nix
+    ./kernel/default.nix
+    ./bootloader/default.nix
     ./core.nix
-    ./nix.nix
-    ./boot.nix
     ./networking.nix
     ./services.nix
     ./desktop.nix

@@ -12,7 +12,7 @@
 
   imports = [
     ./core/default.nix
-    ../../modules/common/users/szyroi/home/default.nix
+    ../modules/common/users/szyroi/home/default.nix
   ];
 
   programs = {

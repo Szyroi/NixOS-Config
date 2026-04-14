@@ -21,11 +21,6 @@
     JAVA_HOME = "${pkgs.jdk}";
   };
 
-  security = {
-    polkit.enable = true;
-    rtkit.enable = true;
-  };
-
   time.timeZone = "Europe/Berlin";
   console.keyMap = "de";
 
