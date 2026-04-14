@@ -34,6 +34,11 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    tauri = {
+      url = "github:Szyroi/tauri-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -45,7 +50,7 @@
     system = "x86_64-linux";
     username = "szyroi";
     pkgs = nixpkgs.legacyPackages.${system};
-    specialArgs = {inherit inputs system username;}; # Gemeinsame SpecialArgs für beide Konfigurationen
+    specialArgs = {inherit inputs system username;}; # SpecialArgs for both Configs
 
     # NixOS Defaults
     nixDefaultsModule = {...}: {
@@ -53,36 +58,7 @@
       nix.settings.experimental-features = ["nix-command" "flakes"];
     };
   in {
-    # devShells
-
-    devShells.${system}.tauri = pkgs.mkShell {
-      buildInputs = with pkgs; [
-        bun
-        nodejs
-
-        # Rust
-        rustc
-        cargo
-
-        # Tauri deps
-        pkg-config
-        openssl
-        glib
-        gtk3
-        webkitgtk_6_0
-        librsvg
-      ];
-
-      shellHook = ''
-        export PKG_CONFIG_PATH=${pkgs.openssl.dev}/lib/pkgconfig
-        export LD_LIBRARY_PATH=${pkgs.webkitgtk_6_0}/lib
-        export OPENSSL_DIR=${pkgs.openssl.dev}
-
-        echo "Tauri dev shell ready 🚀"
-      '';
-    };
-
-    # NixOS Konfigurationen
+    # NixOS Configuration
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -90,6 +66,7 @@
         modules = [
           nixDefaultsModule
           inputs.stylix.nixosModules.stylix
+
           ./modules/system/stylix.nix
           ./hosts/desktop/configuration.nix
 
@@ -107,6 +84,31 @@
           }
         ];
       };
+    };
+
+    laptop = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = specialArgs;
+      modules = [
+        nixDefaultsModule
+        inputs.stylix.nixosModules.stylix
+
+        ./modules/system/stylix.nix
+        ./hosts/laptop/configuration.nix
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "hm-bak";
+          home-manager.users.${username} = import ./home/user.nix;
+          home-manager.extraSpecialArgs = specialArgs;
+          home-manager.sharedModules = [
+            inputs.nixvim.homeModules.nixvim
+            inputs.sops-nix.homeModules.sops
+          ];
+        }
+      ];
     };
 
     formatter.${system} = pkgs.alejandra;
