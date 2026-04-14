@@ -12,6 +12,7 @@
 
   imports = [
     ./core/default.nix
+    ../../modules/common/users/szyroi/home/default.nix
   ];
 
   programs = {
@@ -54,27 +55,6 @@
   };
 
   services.gnome-keyring.enable = true;
-
-  home.packages = with pkgs; [
-    gcr
-    playerctl
-    easyeffects
-    obsidian
-    vesktop
-    wl-clipboard
-    quickshell
-    syncthing
-    anki
-    bitwarden-desktop
-    yazi
-    thunderbird
-    element-desktop
-    pawn-appetit
-    nautilus
-    rustfmt
-    rust-analyzer
-    clippy
-  ];
 
   home.pointerCursor = {
     package = pkgs.bibata-cursors;

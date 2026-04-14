@@ -67,7 +67,7 @@
           nixDefaultsModule
           inputs.stylix.nixosModules.stylix
 
-          ./modules/system/stylix.nix
+          ./modules/nixos/core/stylix.nix
           ./hosts/desktop/configuration.nix
 
           home-manager.nixosModules.home-manager
@@ -93,7 +93,7 @@
         nixDefaultsModule
         inputs.stylix.nixosModules.stylix
 
-        ./modules/system/stylix.nix
+        ./modules/nixos/core/stylix.nix
         ./hosts/laptop/configuration.nix
 
         home-manager.nixosModules.home-manager

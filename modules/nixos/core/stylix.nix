@@ -2,7 +2,7 @@
   stylix = {
     enable = true;
 
-    image = ../../home/wallpapers/WP2.png;
+    image = ../../../home/wallpapers/WP2.png;
 
     polarity = "dark";
 

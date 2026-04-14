@@ -6,7 +6,9 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/system/default.nix
+    ../../modules/nixos/core/default.nix
+    ../../modules/common/users/szyroi/nixos/default.nix
+    ../../modules/nixos/optional/hardware/nvidia.nix
   ];
 
   security.pam.services.login.enableGnomeKeyring = true;

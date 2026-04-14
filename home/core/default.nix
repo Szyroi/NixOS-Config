@@ -12,6 +12,5 @@
     ./theme/gtk.nix
     ./wm/hyprland.nix
     ./shell/sh.nix
-    ./nixpkgs/nixpkgs-config.nix
   ];
 }
