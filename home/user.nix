@@ -11,7 +11,7 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ./modules/default.nix
+    ./core/default.nix
   ];
 
   programs = {
