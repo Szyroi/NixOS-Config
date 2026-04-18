@@ -12,6 +12,7 @@
   ];
 
   security.pam.services.login.enableGnomeKeyring = true;
+  services.gnome.gnome-keyring.enable = true;
 
   fileSystems."/run/media/${username}/windows3" = {
     device = "/dev/nvme0n1p3";

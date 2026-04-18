@@ -25,6 +25,7 @@
     keepassxc
     webex
     openvpn
+    gnome-keyring
   ];
 
   media = with pkgs; [
