@@ -47,8 +47,6 @@
     zen-browser.enable = false;
   };
 
-  services.gnome-keyring.enable = true;
-
   home.pointerCursor = {
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";

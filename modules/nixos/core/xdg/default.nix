@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  xdg.autostart.enable = true;
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;

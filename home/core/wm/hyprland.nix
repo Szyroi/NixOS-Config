@@ -28,7 +28,8 @@ in {
     ################
 
     monitor = [
-      "eDPI-1, 1920x1080@60, auto, 1"
+      "desc:Samsung Electric Company LS28AG700N H4ZT200626, 3840x2160@144, auto-right, 1.5"
+      "desc:ASUSTek COMPUTER INC VG278 K5LMQS011662, 1920x1080@144, auto-left, 1"
     ];
 
     xwayland = {
@@ -158,9 +159,9 @@ in {
       follow_mouse = 1;
       sensitivity = 0;
       accel_profile = "flat";
-       touchpad = {
+      touchpad = {
         natural_scroll = true;
-    };
+      };
     };
 
     device = {
