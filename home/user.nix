@@ -15,13 +15,6 @@
     ../modules/common/users/szyroi/home/default.nix
   ];
 
-  programs = {
-    quickshell = {
-      enable = true;
-      activeConfig = "${config.xdg.configHome}/quickshell/shell.qml";
-    };
-  };
-
   sops = {
     defaultSopsFile = ./../secrets/secrets.yaml;
     age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";

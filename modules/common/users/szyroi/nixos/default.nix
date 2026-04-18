@@ -23,6 +23,8 @@
     gnome-keyring
     libsecret
     keepassxc
+    webex
+    openvpn
   ];
 
   media = with pkgs; [
@@ -73,6 +75,9 @@
     virtualenv
     ruff
     pyright
+
+    #SQL
+    dbeaver-bin
   ];
 
   allPackages = system ++ media ++ development;

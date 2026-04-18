@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
+{...}: {
   programs.helix = {
     enable = true;
 
@@ -15,6 +10,8 @@
         bufferline = "multiple";
         color-modes = true;
         auto-pairs = true;
+        scrolloff = 8;
+        cursorline = true;
 
         file-picker = {
           hidden = false;
@@ -22,11 +19,11 @@
         lsp = {
           display-messages = true;
           display-inlay-hints = true;
+          display-signature-help-docs = true;
         };
       };
 
       keys.normal = {
-        "C-s" = [":format" ":write"];
       };
     };
 
@@ -36,6 +33,21 @@
           name = "java";
           auto-format = true;
           language-servers = ["jdtls"];
+        }
+        {
+          name = "c";
+          auto-format = true;
+          language-servers = ["clangd"];
+        }
+        {
+          name = "rust";
+          auto-format = true;
+          language-servers = ["rust-analyzer"];
+        }
+        {
+          name = "python";
+          auto-format = true;
+          language-servers = ["pyright"];
         }
         {
           name = "typst";
