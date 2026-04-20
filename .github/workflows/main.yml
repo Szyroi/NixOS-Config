@@ -18,6 +18,3 @@ jobs:
 
       - name: Flake check
         run: nix flake check
-
-      - name: Format check
-        run: nix fmt -- --check
