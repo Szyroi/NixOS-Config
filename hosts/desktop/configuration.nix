@@ -11,7 +11,6 @@
     ../../modules/nixos/optional/hardware/nvidia.nix
   ];
 
-  security.pam.services.login.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
 
   fileSystems."/run/media/${username}/windows3" = {

@@ -1,11 +1,15 @@
-# Nix generierte Dateien
+# Nix generated files
 result
 result-*
 .direnv/
 
-# Flakes Lockfile (kann mit ignoriert werden, wenn man Versionskontrolle bevorzugt)
+# Flakes Lockfile
 flake.lock
 
-# Persönliche/Backup Dateien
+# Backup files
 *~
 .#*
+
+# AGS Shell files
+@girs/
+node_modules/
