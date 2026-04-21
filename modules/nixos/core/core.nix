@@ -21,6 +21,8 @@
     JAVA_HOME = "${pkgs.jdk}";
   };
 
+  environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID";
+
   time.timeZone = "Europe/Berlin";
   console.keyMap = "de";
 
