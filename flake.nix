@@ -30,10 +30,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    tauri = {
-      url = "github:Szyroi/tauri-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {

@@ -28,8 +28,12 @@ in {
     ################
 
     monitor = [
+<<<<<<< Updated upstream
       "desc:Samsung Electric Company LS28AG700N H4ZT200626, 3840x2160@144, auto-right, 1.5"
       "desc:ASUSTek COMPUTER INC VG278 K5LMQS011662, 1920x1080@144, auto-left, 1"
+=======
+      "eDP-1,1920x1080@60,0x0,1,bitdepth, 10, cm, auto"
+>>>>>>> Stashed changes
     ];
 
     xwayland = {
@@ -157,17 +161,20 @@ in {
       kb_variant = "";
       numlock_by_default = true;
       follow_mouse = 1;
+<<<<<<< Updated upstream
       sensitivity = 0;
       accel_profile = "flat";
       touchpad = {
         natural_scroll = true;
       };
     };
+=======
+>>>>>>> Stashed changes
 
-    device = {
-      name = "logitech-usb-receiver"; # hyprctl devices
-      accel_profile = "flat";
-      sensitivity = 0.3;
+      accel_profile = "";
+      touchpad = {
+        natural_scroll = true;
+      };
     };
 
     ###################

@@ -16,7 +16,7 @@
     XDG_SESSION_DESKTOP = "Hyprland";
 
     # Graphics Driver
-    GBM_BACKEND = "nvidia-drm";
+    # GBM_BACKEND = "nvidia-drm";
 
     JAVA_HOME = "${pkgs.jdk}";
   };

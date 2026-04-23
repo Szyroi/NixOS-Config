@@ -15,6 +15,10 @@
     ../modules/common/users/szyroi/home/default.nix
   ];
 
+<<<<<<< Updated upstream:home/home.nix
+=======
+
+>>>>>>> Stashed changes:home/user.nix
   sops = {
     defaultSopsFile = ./../secrets/secrets.yaml;
     age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";

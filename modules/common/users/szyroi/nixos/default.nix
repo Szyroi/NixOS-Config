@@ -40,7 +40,6 @@
     ausweisapp
     texliveFull
     jetbrains.idea
-    jetbrains.clion
     seahorse
     parabolic
     kew
