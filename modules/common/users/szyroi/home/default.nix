@@ -15,8 +15,7 @@
     element-desktop
     pawn-appetit
     nautilus
-    rustfmt
-    rust-analyzer
-    clippy
+    kdePackages.kate
+    zellij
   ];
 }

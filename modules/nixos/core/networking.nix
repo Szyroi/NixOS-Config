@@ -13,8 +13,6 @@
     };
   };
 
-  hardware.enableRedistributableFirmware = true;
-
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;

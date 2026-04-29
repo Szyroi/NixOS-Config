@@ -5,18 +5,16 @@
   username,
   ...
 }: {
+  users.defaultUserShell = pkgs.fish;
+
+  programs.fish.enable = true;
+
   users.users.${username} = {
     isNormalUser = true;
-    description = "User";
+    description = "Main User";
     extraGroups = [
       "wheel"
       "networkmanager"
-      "nixbld"
-      "pcscd"
-      "scard"
-    ];
-    packages = with pkgs; [
-      kdePackages.kate
     ];
   };
 }

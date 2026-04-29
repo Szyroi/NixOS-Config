@@ -26,6 +26,7 @@
     webex
     openvpn
     gnome-keyring
+    gparted-full
   ];
 
   media = with pkgs; [
@@ -40,7 +41,6 @@
     ausweisapp
     texliveFull
     jetbrains.idea
-    jetbrains.clion
     seahorse
     parabolic
     kew

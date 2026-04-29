@@ -14,6 +14,11 @@ in {
     enable = true;
     package = null;
     portalPackage = null;
+    systemd = {
+      enable = true;
+      variables = ["--all"];
+      enableXdgAutostart = true;
+    };
   };
 
   services = {
@@ -54,20 +59,10 @@ in {
       "vesktop"
       "fcitx5 -d"
       "gnome-keyring-daemon --start --components=secrets,ssh,pkcs11"
-      "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
     ];
     exec = [
       "easyeffects --gapplication-service"
     ];
-
-    #############################
-    ### ENVIRONMENT VARIABLES ###
-    #############################
-
-    env = [
-      "XCURSOR_SIZE,24"
-    ];
-    "env XCURSOR_THEME" = "Bibata-Modern-Classic";
 
     #####################
     ### LOOK AND FEEL ###
@@ -167,7 +162,7 @@ in {
     device = {
       name = "logitech-usb-receiver"; # hyprctl devices
       accel_profile = "flat";
-      sensitivity = 0.3;
+      sensitivity = 0.4;
     };
 
     ###################

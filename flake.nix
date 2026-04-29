@@ -20,24 +20,27 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    tauri = {
-      url = "github:Szyroi/tauri-nix";
+    silentSDDM = {
+      url = "github:uiriansan/SilentSDDM";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    astal = {
+      url = "github:aylur/astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    ags = {
+      url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
     ...
@@ -48,18 +51,20 @@
     specialArgs = {inherit inputs system username;}; # SpecialArgs for both Configs
 
     # NixOS Defaults
-    nixDefaultsModule = {...}: {
+    nixDefaultsModule = {
       nixpkgs.config.allowUnfree = true;
       nix.settings.experimental-features = ["nix-command" "flakes"];
     };
   in {
+    formatter.${system} = pkgs.alejandra;
+
     # NixOS Configuration
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = specialArgs;
+        inherit specialArgs;
         modules = [
           nixDefaultsModule
+          inputs.silentSDDM.nixosModules.default
           inputs.stylix.nixosModules.stylix
 
           ./modules/nixos/core/stylix.nix
@@ -67,15 +72,16 @@
 
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "hm-bak";
-            home-manager.users.${username} = import ./home/home.nix;
-            home-manager.extraSpecialArgs = specialArgs;
-            home-manager.sharedModules = [
-              inputs.nixvim.homeModules.nixvim
-              inputs.sops-nix.homeModules.sops
-            ];
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "hm-bak";
+              users.${username} = import ./home/desktop/home.nix;
+              extraSpecialArgs = specialArgs;
+              sharedModules = [
+                inputs.sops-nix.homeModules.sops
+              ];
+            };
           }
         ];
       };
@@ -91,20 +97,19 @@
 
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "hm-bak";
-            home-manager.users.${username} = import ./home/home.nix;
-            home-manager.extraSpecialArgs = specialArgs;
-            home-manager.sharedModules = [
-              inputs.nixvim.homeModules.nixvim
-              inputs.sops-nix.homeModules.sops
-            ];
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "hm-bak";
+              users.${username} = import ./home/laptop/home.nix;
+              extraSpecialArgs = specialArgs;
+              sharedModules = [
+                inputs.sops-nix.homeModules.sops
+              ];
+            };
           }
         ];
       };
     };
-
-    formatter.${system} = pkgs.alejandra;
   };
 }

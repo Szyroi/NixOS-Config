@@ -8,23 +8,18 @@
     # Wayland Core
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-
-    # Desktop Session
-    XDG_SESSION_TYPE = "wayland";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_DESKTOP = "Hyprland";
 
     # Graphics Driver
     GBM_BACKEND = "nvidia-drm";
 
+    QT_SCREEN_SCALE_FACTORS = "1";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    QT_ENABLE_HIGHDPI_SCALING = "1";
+
     JAVA_HOME = "${pkgs.jdk}";
   };
 
-  environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID";
-
   time.timeZone = "Europe/Berlin";
-  console.keyMap = "de";
 
   i18n = {
     defaultLocale = "en_US.UTF-8";

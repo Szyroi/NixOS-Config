@@ -7,6 +7,7 @@
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
+    enableBashIntegration = true;
   };
 
   # === Bash ===
@@ -14,7 +15,7 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake ~/nix#desktop";
+      rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config#desktop";
     };
 
     bashrcExtra = ''
@@ -33,8 +34,9 @@
     enable = true;
     shellAliases = {
       uwu = "sudo";
-      rebuild = "sudo nixos-rebuild switch --flake ~/nix-config#desktop";
-      update-lock = "sudo nix flake update --flake ~/nix-config";
+      rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config#desktop";
+      firmware = "sudo systemctl reboot --firmware-setup";
+      update-lock = "sudo nix flake update --flake ~/nixos-config";
       update-flake = "sudo nix flake update --commit-lock-file";
       java-Main = "javac Main.java && java Main.java";
       java-main = "javac main.java && java main.java";

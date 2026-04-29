@@ -6,7 +6,7 @@
   ...
 }: {
   programs.nixvim = {
-    enable = true;
+    enable = false;
     package = pkgs.neovim-unwrapped;
     enableMan = true;
     globals.mapleader = " ";

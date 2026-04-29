@@ -1,15 +1,17 @@
 {
-  config,
   pkgs,
   lib,
   ...
 }: {
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    dpi = 192;
+  };
 
   services.displayManager.sddm = {
     enable = true;
-    enableHidpi = true;
-    wayland.enable = true;
+    theme = "silent";
+    wayland.enable = lib.mkForce true;
   };
 
   programs = {
@@ -19,6 +21,7 @@
     dconf.enable = true;
     hyprland = {
       enable = true;
+      withUWSM = false;
     };
     steam = {
       enable = true;

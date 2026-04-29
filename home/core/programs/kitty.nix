@@ -14,14 +14,14 @@
     settings = {
       scrollback_lines = 10000;
       enable_audio_bell = false;
-      background_opacity = lib.mkDefault 0.85;
+      background_opacity = lib.mkForce 0.9;
       confirm_os_window_close = 0;
 
       background_blur = 0;
 
       cursor_shape = "beam";
       cursor_shape_unfocused = "beam";
-      cursor_beam_thickness = 4;
+      cursor_beam_thickness = 2;
       cursor_blink_interval = 0.5;
       cursor_trail = 3;
     };

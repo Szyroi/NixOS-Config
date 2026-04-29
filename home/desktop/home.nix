@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   config,
   inputs,
   username,
@@ -11,9 +10,16 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ./core/default.nix
     ../modules/common/users/szyroi/home/default.nix
+    ../home/core/default.nix
+    ../home/optional/laptop/default.nix
+    inputs.ags.homeManagerModules.default
   ];
+
+  programs.ags = {
+    enable = true;
+    configDir = ../home/core/ags;
+  };
 
   sops = {
     defaultSopsFile = ./../secrets/secrets.yaml;
