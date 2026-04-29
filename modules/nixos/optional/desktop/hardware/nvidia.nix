@@ -24,7 +24,7 @@
       enable = true;
       enable32Bit = true;
     };
-    bluetooth.enable = true;
+
     steam-hardware.enable = true;
   };
 }

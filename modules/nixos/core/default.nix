@@ -4,7 +4,6 @@
     ./zswap/default.nix
     ./xdg/default.nix
     ./security/default.nix
-    ./core.nix
     ./networking.nix
     ./services.nix
     ./desktop.nix

@@ -17,15 +17,6 @@
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config#desktop";
     };
-
-    bashrcExtra = ''
-      if [[ $- == *i* ]]; then
-        if [[ "$TERM_PROGRAM" != "zed" ]] && [[ "$TERM_PROGRAM" != "Zed" ]] && [[ "$TERM" != *zed* ]]; then
-          command -v fastfetch >/dev/null 2>&1 && fastfetch
-        fi
-      fi
-      eval "$(starship init bash)"
-    '';
   };
 
   # === Fish ===

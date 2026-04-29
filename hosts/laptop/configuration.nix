@@ -1,14 +1,21 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/core/default.nix
     ../../modules/common/users/szyroi/nixos/default.nix
     ../../modules/nixos/optional/laptop/default.nix
+    inputs.silentSDDM.nixosModules.default
   ];
+
+  programs.silentSDDM = {
+    enable = true;
+    theme = "rei";
+    settings = {
+      General = {
+        scale = 1.0;
+      };
+    };
+  };
 
   security.pam.services.login.enableGnomeKeyring = true;
 

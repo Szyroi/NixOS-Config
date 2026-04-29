@@ -1,18 +1,5 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
-  services.xserver = {
-    enable = true;
-    dpi = 192;
-  };
-
-  services.displayManager.sddm = {
-    enable = true;
-    theme = "silent";
-    wayland.enable = lib.mkForce true;
-  };
+{pkgs, ...}: {
+  services.xserver.enable = true;
 
   programs = {
     firefox.enable = true;
