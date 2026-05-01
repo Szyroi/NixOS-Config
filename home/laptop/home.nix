@@ -10,19 +10,19 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ../modules/common/users/szyroi/home/default.nix
-    ../home/core/default.nix
-    ../home/optional/laptop/default.nix
+    ../common/users/szyroi/home/default.nix
+    ../core/default.nix
+    ../optional/laptop/default.nix
     inputs.ags.homeManagerModules.default
   ];
 
   programs.ags = {
     enable = true;
-    configDir = ../home/core/ags;
+    configDir = ../core/ags;
   };
 
   sops = {
-    defaultSopsFile = ./../secrets/secrets.yaml;
+    defaultSopsFile = ../../secrets/secrets.yaml;
     age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
     defaultSopsFormat = "yaml";
   };
