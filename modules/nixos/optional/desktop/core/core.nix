@@ -8,13 +8,10 @@
     # Wayland Core
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
 
     # Graphics Driver
     GBM_BACKEND = "nvidia-drm";
-
-    QT_SCREEN_SCALE_FACTORS = "1";
-    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    QT_ENABLE_HIGHDPI_SCALING = "1";
 
     JAVA_HOME = "${pkgs.jdk}";
   };

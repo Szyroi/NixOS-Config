@@ -27,6 +27,8 @@
     openvpn
     gnome-keyring
     gparted-full
+    steamtinkerlaunch
+    unar
   ];
 
   media = with pkgs; [

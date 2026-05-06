@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   services.xserver.enable = true;
 
+  services.displayManager.defaultSession = "hyprland";
+
   programs = {
     firefox.enable = true;
     thunar.enable = true;
@@ -10,8 +12,10 @@
       enable = true;
       withUWSM = false;
     };
+
     steam = {
       enable = true;
+      protontricks.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
