@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/core/default.nix
@@ -12,6 +16,13 @@
     theme = "rei";
   };
 
+  services.displayManager.sddm = {
+    enable = true;
+    enableHidpi = true;
+    wayland.enable = true;
+  };
+
+  security.pam.services.sddm.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
 
   hardware.cpu.amd.updateMicrocode = true;

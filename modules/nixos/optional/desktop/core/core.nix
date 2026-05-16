@@ -13,7 +13,7 @@
     # Graphics Driver
     GBM_BACKEND = "nvidia-drm";
 
-    JAVA_HOME = "${pkgs.jdk}";
+    JAVA_HOME = "${pkgs.jdk25}";
   };
 
   time.timeZone = "Europe/Berlin";

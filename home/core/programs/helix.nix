@@ -28,7 +28,7 @@
         };
         lsp = {
           display-messages = true;
-          display-inlay-hints = true;
+          display-inlay-hints = false;
           display-signature-help-docs = true;
         };
       };

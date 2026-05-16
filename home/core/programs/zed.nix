@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   lib,
   ...
 }: {
@@ -36,13 +35,10 @@
       buffer_font_size = lib.mkDefault 15.0;
       buffer_font_family = lib.mkDefault "JetBrainsMono Nerd Font";
 
-      format_on_save = "on";
       prettier.allowed = false;
-      enable_language_server = true;
+
       linked_edits = true;
-      completions = {
-        lsp = true;
-      };
+
       diagnostics = {
         lsp_pull_diagnostics = {
           enabled = true;
@@ -68,14 +64,68 @@
 
       theme = {
         mode = "dark";
-        dark = lib.mkDefault "Yūgen - Kage";
-        light = lib.mkDefault "Yūgen - Kage";
+        dark = lib.mkDefault "Yuugen - Kage";
+        light = lib.mkDefault "Yuugen - Kage";
       };
 
       icon_theme = {
         mode = "dark";
         light = "Colored Zed Icons Theme Light";
         dark = "Colored Zed Icons Theme Dark";
+      };
+
+      format_on_save = "on";
+
+      show_completion_documentation = true;
+      show_completions_on_input = true;
+
+      use_auto_surround = true;
+      use_autoclose = true;
+
+      ensure_final_newline_on_save = true;
+      remove_trailing_whitespace_on_save = true;
+
+      indent_guides = {
+        active_line_width = 2;
+        line_width = 1;
+        coloring = "indent_aware";
+        enabled = true;
+      };
+
+      inlay_hints = {
+        show_other_hints = true;
+        show_parameter_hints = true;
+        show_type_hints = true;
+        show_value_hints = true;
+        enabled = true;
+      };
+
+      completions = {
+        lsp = true;
+      };
+
+      lsp = {
+        "lua-language-server" = {
+          settings = {
+            Lua = {
+              runtime = {
+                version = "LuaJIT";
+              };
+
+              diagnostics = {
+                globals = ["hl"];
+              };
+
+              workspace = {
+                library = [
+                  "${pkgs.hyprland}/share/hypr"
+                ];
+
+                checkThirdParty = false;
+              };
+            };
+          };
+        };
       };
 
       languages = {
@@ -90,6 +140,13 @@
         };
         C = {
           language_servers = ["clangd"];
+
+          formatter = {
+            external = {
+              command = "clang-format";
+              arguments = [];
+            };
+          };
         };
         Python = {
           language_servers = [
@@ -105,54 +162,15 @@
               ];
             };
           };
-          enable_language_server = true;
-          inlay_hints = {
-            show_other_hints = true;
-            show_parameter_hints = true;
-            show_type_hints = true;
-            show_value_hints = true;
-            enabled = true;
-          };
-          show_completion_documentation = true;
-          show_completions_on_input = true;
-          use_auto_surround = true;
-          use_autoclose = true;
-          ensure_final_newline_on_save = true;
-          remove_trailing_whitespace_on_save = true;
-          format_on_save = "on";
-          indent_guides = {
-            coloring = "indent_aware";
-          };
         };
-        Java = {
-          show_edit_predictions = false;
-          prettier.allowed = true;
-          inlay_hints = {
-            show_other_hints = true;
-            show_parameter_hints = true;
-            show_type_hints = true;
-            show_value_hints = true;
-            enabled = true;
-          };
-          show_completion_documentation = true;
-          show_completions_on_input = true;
-          show_whitespaces = "selection";
-          use_auto_surround = true;
-          use_autoclose = true;
-          ensure_final_newline_on_save = true;
-          remove_trailing_whitespace_on_save = true;
-          format_on_save = "on";
-          allow_rewrap = "in_comments";
-          show_wrap_guides = true;
-          soft_wrap = "none";
-          auto_indent = "syntax_aware";
-          auto_indent_on_paste = true;
-          indent_guides = {
-            active_line_width = 2;
-            line_width = 1;
-            background_coloring = "disabled";
-            coloring = "indent_aware";
-            enabled = true;
+
+        Lua = {
+          language_servers = ["lua-language-server"];
+          formatter = {
+            external = {
+              command = "stylua";
+              arguments = ["-"];
+            };
           };
         };
       };

@@ -1,16 +1,15 @@
 {pkgs, ...}: {
   services.xserver.enable = true;
 
-  services.displayManager.defaultSession = "hyprland";
-
   programs = {
     firefox.enable = true;
     thunar.enable = true;
     xfconf.enable = true;
     dconf.enable = true;
+
     hyprland = {
       enable = true;
-      withUWSM = false;
+      withUWSM = true;
     };
 
     steam = {

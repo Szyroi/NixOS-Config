@@ -1,32 +1,20 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   system = with pkgs; [
     vim
     btop
-    htop
-    eza
     bat
     fzf
     curl
     wget
     unzip
-    aria2
-    ripgrep
     kdePackages.ark
-    git-filter-repo
+    thunar-archive-plugin
     age
     sops
     gnome-keyring
     libsecret
     keepassxc
-    webex
     openvpn
-    gnome-keyring
-    gparted-full
     steamtinkerlaunch
     unar
   ];
@@ -42,7 +30,6 @@
     gnome-calculator
     ausweisapp
     texliveFull
-    jetbrains.idea
     seahorse
     parabolic
     kew
@@ -55,12 +42,16 @@
     fish-lsp
     bash-language-server
     shfmt
-    vscode-json-languageserver #JSON
-    taplo #TOML
+    vscode-json-languageserver # JSON
+    taplo # TOML
     yaml-language-server
     systemd-lsp
+
+    # Lua
     lua-language-server
     stylua
+
+    # Markdown
     markdown-oxide
 
     # Web dev
@@ -101,6 +92,10 @@
 
     #Typst
     tinymist
+
+    #LaTeX
+    texlab
+    tex-fmt
   ];
 
   development = with pkgs; [
@@ -130,6 +125,14 @@
 
     #SQL
     dbeaver-bin
+
+    #Qt6
+    qt6.qtbase
+    qt6.qtdeclarative
+    qt6.qtwayland
+    qt6.qttools
+    qt6.qtvirtualkeyboard
+    qt6.qtmultimedia
   ];
 
   allPackages = system ++ media ++ language-servers ++ development;

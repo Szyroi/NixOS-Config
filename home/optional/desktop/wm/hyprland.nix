@@ -1,30 +1,16 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }: let
   c = config.myTheme.colors;
 in {
-  home.packages = with pkgs; [
-    hyprpaper
-  ];
-
   wayland.windowManager.hyprland = {
-    enable = true;
+    enable = false;
     package = null;
     portalPackage = null;
-    systemd = {
-      enable = true;
-      variables = ["--all"];
-      enableXdgAutostart = true;
-    };
-  };
-
-  services = {
-    hyprpaper = {
-      enable = lib.mkDefault true;
-    };
+    systemd.enable = false;
+    configType = "lua";
   };
 
   wayland.windowManager.hyprland.settings = {
@@ -58,7 +44,6 @@ in {
       "$browser"
       "vesktop"
       "fcitx5 -d"
-      "gnome-keyring-daemon --start --components=secrets,ssh,pkcs11"
     ];
     exec = [
       "easyeffects --gapplication-service"
@@ -221,13 +206,4 @@ in {
       ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
     ];
   };
-
-  ##############################
-  ### WINDOWS AND WORKSPACES ###
-  ##############################
-
-  wayland.windowManager.hyprland.extraConfig = ''
-
-
-  '';
 }

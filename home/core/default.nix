@@ -8,6 +8,7 @@
     ./programs/fastfetch.nix
     ./programs/wofi.nix
     ./programs/helix.nix
+    ./programs/hyprpaper.nix
     ./theme/gtk.nix
     ./shell/sh.nix
   ];

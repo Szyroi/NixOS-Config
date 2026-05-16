@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   powerManagement = {
     enable = true;
-    cpuFreqGovernor = "schedutil";
+    cpuFreqGovernor = "ondemand";
   };
   hardware.cpu.amd.updateMicrocode = true;
   services.fstrim.enable = true;
