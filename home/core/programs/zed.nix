@@ -140,7 +140,6 @@
         };
         C = {
           language_servers = ["clangd"];
-
           formatter = {
             external = {
               command = "clang-format";
@@ -148,6 +147,16 @@
             };
           };
         };
+
+        CMake = {
+          formatter = {
+            external = {
+              command = "cmake-format";
+              arguments = ["-"];
+            };
+          };
+        };
+
         Python = {
           language_servers = [
             "ruff"

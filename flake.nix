@@ -25,6 +25,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixland = {
+      url = "github:Szyroi/nixland";
+    };
+
     silentSDDM = {
       url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,7 +70,6 @@
           nixDefaultsModule
           inputs.silentSDDM.nixosModules.default
           inputs.stylix.nixosModules.stylix
-
           ./modules/nixos/core/stylix.nix
           ./hosts/desktop/configuration.nix
 
@@ -80,6 +83,7 @@
               extraSpecialArgs = specialArgs;
               sharedModules = [
                 inputs.sops-nix.homeModules.sops
+                inputs.nixland.homeManagerModules.default
               ];
             };
           }

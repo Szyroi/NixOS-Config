@@ -85,6 +85,7 @@
 
     # Cmake
     neocmakelsp
+    cmake-format
 
     # Python
     pyright
@@ -117,6 +118,7 @@
 
     # cmake
     cmake
+    ninja
 
     #Python
     python3
