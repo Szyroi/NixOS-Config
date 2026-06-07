@@ -34,8 +34,8 @@
     kitty.enable = true;
     vesktop.enable = true;
     gtk = {
-      enable = true;
-      colors.enable = true;
+      enable = false;
+      colors.enable = false;
     };
     qt = {
       enable = true;

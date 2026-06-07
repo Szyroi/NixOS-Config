@@ -13,6 +13,13 @@
     };
   };
 
+  services.openvpn.servers = {
+    hbrsVpn = {
+      config = "/etc/nixos/vpn/client.ovpn";
+      autoStart = false;
+    };
+  };
+
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;

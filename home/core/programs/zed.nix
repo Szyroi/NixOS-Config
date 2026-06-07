@@ -34,11 +34,13 @@
       buffer_font_weight = lib.mkDefault 400.0;
       buffer_font_size = lib.mkDefault 15.0;
       buffer_font_family = lib.mkDefault "JetBrainsMono Nerd Font";
-
+      project_panel = {
+        dock = "left";
+      };
       prettier.allowed = false;
 
       linked_edits = true;
-
+      disable_ai = true;
       diagnostics = {
         lsp_pull_diagnostics = {
           enabled = true;
@@ -93,11 +95,11 @@
       };
 
       inlay_hints = {
-        show_other_hints = true;
-        show_parameter_hints = true;
-        show_type_hints = true;
-        show_value_hints = true;
-        enabled = true;
+        show_other_hints = false;
+        show_parameter_hints = false;
+        show_type_hints = false;
+        show_value_hints = false;
+        enabled = false;
       };
 
       completions = {
@@ -105,6 +107,14 @@
       };
 
       lsp = {
+        "qmljs" = {
+          binary = {
+            arguments = [
+              "-E"
+              "additional-args"
+            ];
+          };
+        };
         "lua-language-server" = {
           settings = {
             Lua = {
@@ -130,13 +140,13 @@
 
       languages = {
         Nix = {
+          language_servers = ["nixd"];
           formatter = {
             external = {
               command = "alejandra";
               arguments = ["--quiet"];
             };
           };
-          language_servers = ["nixd"];
         };
         C = {
           language_servers = ["clangd"];

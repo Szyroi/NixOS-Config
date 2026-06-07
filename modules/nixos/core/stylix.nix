@@ -1,7 +1,9 @@
 {pkgs, ...}: {
   stylix = {
     enable = true;
-
+    targets = {
+      kmscon.enable = false;
+    };
     image = ../../../home/wallpapers/WP3.png;
 
     polarity = "dark";
@@ -30,27 +32,15 @@
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font";
-      };
-
-      sansSerif = {
-        package = pkgs.geist-font;
-        name = "Geist";
-      };
-
-      serif = {
-        package = pkgs.noto-fonts;
-        name = "Noto Serif";
-      };
-
-      emoji = {
-        package = pkgs.noto-fonts-color-emoji;
-        name = "Noto Color Emoji";
+        name = "Jetbrains Mono Nerd Font";
       };
     };
   };
 
   fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    noto-fonts
     noto-fonts-cjk-sans
+    noto-fonts-color-emoji
   ];
 }

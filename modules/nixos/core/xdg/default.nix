@@ -9,10 +9,14 @@
     ];
 
     config = {
-      hyprland = {
+      common = {
         default = ["hyprland" "gtk"];
+      };
+
+      hyprland = {
+        default = ["hyprland"];
         "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
-        "org.freedesktop.impl.portal.OpenURI" = ["hyprland"];
+        "org.freedesktop.impl.portal.OpenURI" = ["gtk"];
         "org.freedesktop.impl.portal.Settings" = ["gtk"];
       };
     };

@@ -16,6 +16,7 @@
     enable = true;
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config#desktop";
+      vpn-up = "sudo openvpn /etc/nixos/openvpn/client.ovpn";
     };
   };
 
@@ -33,6 +34,7 @@
       java-main = "javac main.java && java main.java";
       java-app = "javac app.java && java app.java";
       java-App = "javac App.java && java App.java";
+      vpn-up = "sudo openvpn /etc/nixos/openvpn/client.ovpn";
     };
 
     shellInit = ''

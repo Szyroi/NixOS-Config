@@ -7,6 +7,7 @@
   environment.sessionVariables = {
     # Wayland Core
     NIXOS_OZONE_WL = "1";
+    GTK_USE_PORTAL = "1";
     MOZ_ENABLE_WAYLAND = "1";
 
     JAVA_HOME = "${pkgs.jdk}";

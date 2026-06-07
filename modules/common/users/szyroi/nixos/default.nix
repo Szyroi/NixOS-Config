@@ -2,6 +2,8 @@
   system = with pkgs; [
     vim
     btop
+    man-pages
+    man-pages-posix
     bat
     fzf
     curl
@@ -17,6 +19,7 @@
     openvpn
     steamtinkerlaunch
     unar
+    tree-sitter
   ];
 
   media = with pkgs; [
@@ -82,6 +85,7 @@
     # Rust
     rust-analyzer
     rustfmt
+    clippy
 
     # Cmake
     neocmakelsp
@@ -105,8 +109,7 @@
     deadnix
 
     #Java
-    jdk25
-    javaPackages.compiler.openjdk25
+    jdk17
     maven
 
     #Assembly
@@ -115,6 +118,10 @@
     #C/C++
     gcc
     gdb
+
+    #Rust
+    cargo
+    rustc
 
     # cmake
     cmake
@@ -127,6 +134,9 @@
 
     #SQL
     dbeaver-bin
+
+    # JavaScript
+    nodejs
 
     #Qt6
     qt6.qtbase

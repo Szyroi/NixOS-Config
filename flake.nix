@@ -25,10 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixland = {
-      url = "github:Szyroi/nixland";
-    };
-
     silentSDDM = {
       url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,11 +38,17 @@
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixland = {
+      url = "github:Szyroi/nixland";
+    };
+    rux.url = "github:rux-lang/Rux/main";
   };
 
   outputs = {
+    self,
     nixpkgs,
     home-manager,
+    rux,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -58,6 +60,12 @@
     nixDefaultsModule = {
       nixpkgs.config.allowUnfree = true;
       nix.settings.experimental-features = ["nix-command" "flakes"];
+    };
+
+    ruxCompilerModule = {...}: {
+      environment.systemPackages = [
+        rux.packages.${system}.default
+      ];
     };
   in {
     formatter.${system} = pkgs.alejandra;
@@ -72,6 +80,8 @@
           inputs.stylix.nixosModules.stylix
           ./modules/nixos/core/stylix.nix
           ./hosts/desktop/configuration.nix
+
+          ruxCompilerModule
 
           home-manager.nixosModules.home-manager
           {

@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/core/default.nix
@@ -15,6 +11,10 @@
     enable = true;
     theme = "rei";
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
+  ];
 
   services.displayManager.sddm = {
     enable = true;
