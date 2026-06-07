@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depht: 0
 
       - name: Install Nix
         uses: cachix/install-nix-action@v25
@@ -23,7 +25,7 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@v2
 
       - name: Flake Check
-        run: nix flake check --print-build-logs
+        run: nix flake check --no-update-lock-file --print-build-logs
 
       - name: Build System Configuration
-        run: nix build .#nixosConfigurations.desktop.config.system.build.toplevel --print-build-logs
+        run: nix build .#nixosConfigurations.desktop.config.system.build.toplevel --no-update-lock-file --print-build-logs
