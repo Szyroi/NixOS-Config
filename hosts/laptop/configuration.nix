@@ -7,6 +7,10 @@
     inputs.silentSDDM.nixosModules.default
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
+  ];
+
   programs.silentSDDM = {
     enable = true;
     theme = "rei";

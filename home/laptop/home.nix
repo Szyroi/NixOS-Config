@@ -10,7 +10,7 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ../common/users/szyroi/home/default.nix
+    ../../modules/common/users/szyroi/home/default.nix
     ../core/default.nix
     ../optional/laptop/default.nix
     inputs.ags.homeManagerModules.default
