@@ -1,5 +1,5 @@
 {
-  description = "NixOS with Home Manager";
+  description = "NixOS with Home Manager & Multi-Device Architecture";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -41,47 +41,48 @@
     nixland = {
       url = "github:Szyroi/nixland";
     };
-    rux.url = "github:rux-lang/Rux/main";
+    rux-compiler = {
+      url = "github:Szyroi/Rux/dev";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    rux,
+    rux-compiler,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     username = "szyroi";
     pkgs = nixpkgs.legacyPackages.${system};
-    specialArgs = {inherit inputs system username;}; # SpecialArgs for both Configs
+    specialArgs = {
+      inherit inputs system username;
+      self = rux-compiler;
+    }; # SpecialArgs for both Configs
 
-    # NixOS Defaults
+    # Global NixOS settings (System wide)
     nixDefaultsModule = {
       nixpkgs.config.allowUnfree = true;
       nix.settings.experimental-features = ["nix-command" "flakes"];
     };
-
-    ruxCompilerModule = {...}: {
-      environment.systemPackages = [
-        rux.packages.${system}.default
-      ];
-    };
   in {
+    # Formatter for nix fmt
     formatter.${system} = pkgs.alejandra;
 
-    # NixOS Configuration
     nixosConfigurations = {
+      # ================= DESKTOP CONFIGURATION =================
+
       desktop = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = [
           nixDefaultsModule
           inputs.silentSDDM.nixosModules.default
           inputs.stylix.nixosModules.stylix
+
+          rux-compiler.nixosModules.default
           ./modules/nixos/core/stylix.nix
           ./hosts/desktop/configuration.nix
-
-          ruxCompilerModule
 
           home-manager.nixosModules.home-manager
           {
@@ -99,9 +100,11 @@
           }
         ];
       };
+
+      # ================= LAPTOP CONFIGURATION =================
+
       laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = specialArgs;
+        inherit specialArgs;
         modules = [
           nixDefaultsModule
           inputs.stylix.nixosModules.stylix

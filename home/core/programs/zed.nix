@@ -107,6 +107,11 @@
       };
 
       lsp = {
+        "clangd" = {
+          initialization_options = {
+            "compilationDatabasePath" = "build/clang";
+          };
+        };
         "qmljs" = {
           binary = {
             arguments = [

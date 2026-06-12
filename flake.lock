@@ -336,18 +336,54 @@
         "home-manager": "home-manager",
         "nixland": "nixland",
         "nixpkgs": "nixpkgs_2",
-        "rux": "rux",
+        "rux-compiler": "rux-compiler",
         "silentSDDM": "silentSDDM",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "zen-browser": "zen-browser"
       }
     },
-    "rux": {
+    "rux-compiler": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "rux-dev": "rux-dev",
+        "rux-stable": "rux-stable"
       },
+      "locked": {
+        "lastModified": 1780846361,
+        "narHash": "sha256-6MPKosBenD+5hpyknDOiNnBaZmI246yMH0I7jhF0v5E=",
+        "owner": "Szyroi",
+        "repo": "Rux",
+        "rev": "e4ca41f4cc4a476a1cce35c75852c975bcbd1149",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Szyroi",
+        "ref": "dev",
+        "repo": "Rux",
+        "type": "github"
+      }
+    },
+    "rux-dev": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780859245,
+        "narHash": "sha256-HDsdUtIMzVONmBjneI9U/qAbuZo7c9Q5CeuTZ3oMuLA=",
+        "owner": "rux-lang",
+        "repo": "Rux",
+        "rev": "dfcf7176cd6e0d0b64dea9586cdd7d1a72e88163",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rux-lang",
+        "ref": "dev",
+        "repo": "Rux",
+        "type": "github"
+      }
+    },
+    "rux-stable": {
+      "flake": false,
       "locked": {
         "lastModified": 1780800634,
         "narHash": "sha256-OWHzJa7zwEYLdb+fYwUJ5o5vc2RzNu/REFuSSWkyhkg=",
