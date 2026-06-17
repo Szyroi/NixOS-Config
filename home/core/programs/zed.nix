@@ -171,7 +171,9 @@
             };
           };
         };
-
+        Assembly = {
+          language_servers = ["asm-lsp"];
+        };
         Python = {
           language_servers = [
             "ruff"

@@ -4,7 +4,7 @@
     targets = {
       kmscon.enable = false;
     };
-    image = ../../../home/wallpapers/WP3.png;
+    image = ../../../home/wallpapers/WP10.png;
 
     polarity = "dark";
 
