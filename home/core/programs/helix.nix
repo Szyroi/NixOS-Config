@@ -7,6 +7,7 @@
     enable = true;
 
     settings = {
+      theme = "gruber-darker";
       editor = {
         line-number = "relative";
         mouse = true;
@@ -33,8 +34,6 @@
         };
       };
 
-      keys.normal = {
-      };
     };
 
     languages = {
@@ -58,6 +57,9 @@
           args = ["--stdio"];
         };
         svelte-language-server = {command = lib.getExe pkgs.svelte-language-server;};
+        clangd = { command = lib.getExe' pkgs.clang-tools "clangd";
+                 args = ["--background-index" "--clang-tidy"];
+                  };
         asm-lsp = {command = lib.getExe pkgs.asm-lsp;};
         neocmakelsp = {command = lib.getExe pkgs.neocmakelsp;};
       };
@@ -78,6 +80,13 @@
           file-types = ["c" "h"];
           auto-format = true;
           language-servers = ["clangd"];
+        }
+        {
+         name = "cpp";
+         scope = "source.cpp";
+         file-types = ["cpp" "hpp" "cc" "cxx" "c++"];
+         auto-format = true;
+         language-servers = ["clangd"];
         }
         {
           name = "rust";

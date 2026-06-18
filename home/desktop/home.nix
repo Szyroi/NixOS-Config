@@ -33,6 +33,7 @@
     starship.enable = true;
     kitty.enable = true;
     vesktop.enable = true;
+    helix.enable = false;
     gtk = {
       enable = false;
       colors.enable = false;
@@ -59,6 +60,10 @@
     size = 24;
     gtk.enable = true;
     x11.enable = true;
+  };
+
+  home.sessionVariables = {
+    GTK_USE_PORTAL = "1";
   };
 
   programs.home-manager.enable = true;
