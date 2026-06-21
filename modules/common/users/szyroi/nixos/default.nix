@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   system = with pkgs; [
     vim
     btop
@@ -20,6 +24,7 @@
     steamtinkerlaunch
     unar
     tree-sitter
+    inputs.sqldeveloper.packages.${pkgs.system}.default
   ];
 
   media = with pkgs; [

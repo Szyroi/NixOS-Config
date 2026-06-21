@@ -41,8 +41,9 @@
     nixland = {
       url = "github:Szyroi/nixland";
     };
-    rux-compiler = {
-      url = "github:Szyroi/Rux/dev";
+
+    sqldeveloper = {
+      url = "github:Szyroi/SQLDeveloper-Flake";
     };
   };
 
@@ -50,16 +51,19 @@
     self,
     nixpkgs,
     home-manager,
-    rux-compiler,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
     username = "szyroi";
-    pkgs = nixpkgs.legacyPackages.${system};
-    specialArgs = {
-      inherit inputs system username;
-      self = rux-compiler;
-    }; # SpecialArgs for both Configs
+
+    supportedSystems = ["x86_64-linux"];
+    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+
+    # pkgs für das spezifische System erstellen
+    pkgsFor = forAllSystems (system:
+      import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      });
 
     # Global NixOS settings (System wide)
     nixDefaultsModule = {
@@ -68,19 +72,21 @@
     };
   in {
     # Formatter for nix fmt
-    formatter.${system} = pkgs.alejandra;
+    formatter = forAllSystems (system: pkgsFor.${system}.alejandra);
 
     nixosConfigurations = {
       # ================= DESKTOP CONFIGURATION =================
 
       desktop = nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs username;
+        };
         modules = [
           nixDefaultsModule
           inputs.silentSDDM.nixosModules.default
           inputs.stylix.nixosModules.stylix
 
-          rux-compiler.nixosModules.default
           ./modules/nixos/core/stylix.nix
           ./hosts/desktop/configuration.nix
 
@@ -91,7 +97,9 @@
               useUserPackages = true;
               backupFileExtension = "hm-bak";
               users.${username} = import ./home/desktop/home.nix;
-              extraSpecialArgs = specialArgs;
+              extraSpecialArgs = {
+                inherit inputs username;
+              };
               sharedModules = [
                 inputs.sops-nix.homeModules.sops
                 inputs.nixland.homeManagerModules.default
@@ -104,7 +112,10 @@
       # ================= LAPTOP CONFIGURATION =================
 
       laptop = nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs username;
+        };
         modules = [
           nixDefaultsModule
           inputs.stylix.nixosModules.stylix
@@ -119,7 +130,9 @@
               useUserPackages = true;
               backupFileExtension = "hm-bak";
               users.${username} = import ./home/laptop/home.nix;
-              extraSpecialArgs = specialArgs;
+              extraSpecialArgs = {
+                inherit inputs username;
+              };
               sharedModules = [
                 inputs.sops-nix.homeModules.sops
               ];
