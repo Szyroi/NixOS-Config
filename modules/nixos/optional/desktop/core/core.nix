@@ -11,9 +11,6 @@
     MOZ_ENABLE_WAYLAND = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
 
-    # Graphics Driver
-    GBM_BACKEND = "nvidia-drm";
-
     JAVA_HOME = "${pkgs.jdk17}";
   };
 

@@ -12,12 +12,6 @@
     theme = "rei";
   };
 
-  services.displayManager.sddm = {
-    enable = true;
-    enableHidpi = true;
-    wayland.enable = true;
-  };
-
   security.pam.services.sddm.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
 

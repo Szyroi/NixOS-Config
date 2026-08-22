@@ -9,13 +9,9 @@
     modesetting.enable = true; # Important for Wayland/Hyprland
     nvidiaSettings = true; # nvidia-settings App
     open = true;
-
     nvidiaPersistenced = false;
-
     powerManagement.enable = true;
     powerManagement.finegrained = false;
-
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     prime = {
       offload.enable = true; # for Hybrid GPU Offloading

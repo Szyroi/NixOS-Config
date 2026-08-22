@@ -1,7 +1,7 @@
 {lib, ...}: {
   services.displayManager.sddm = {
     enable = true;
-    theme = "silent";
+    enableHidpi = true;
     wayland.enable = lib.mkForce true;
   };
 }

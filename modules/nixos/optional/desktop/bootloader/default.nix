@@ -16,13 +16,13 @@
   };
 
   boot = {
-    kernelParams = ["nvidia-drm.modeset=1" "nvidia.NVreg_RestrictProfilingToAdminUsers=0"];
+    kernelParams = ["nvidia-drm.modeset=1" "pcie_aspm=off"];
     kernelPackages = pkgs.linuxPackages_latest;
     kernel = {
       sysctl = {
         "kernel.sysrq" = 1;
         "net.ipv4.tcp_syncookies" = true;
-        "vm.swappiness" = 180;
+        "vm.swappiness" = 100;
         "vm.vfs_cache_pressure" = 50;
         "vm.dirty_background_ratio" = 10;
         "vm.dirty_ratio" = 30;

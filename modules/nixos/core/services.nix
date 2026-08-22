@@ -15,9 +15,7 @@
 
     fstrim.enable = true;
     dbus.enable = true;
-    pcscd.enable = true;
     udisks2.enable = true; # USB functionalities
-    openssh.enable = true;
     blueman.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
     tumbler.enable = true; # Thumbnail support for images
