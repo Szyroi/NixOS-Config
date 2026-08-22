@@ -5,7 +5,6 @@
     obsidian
     vesktop
     wl-clipboard
-    syncthing
     anki
     # bitwarden-desktop
     yazi

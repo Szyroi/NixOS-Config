@@ -15,7 +15,5 @@
   security.pam.services.sddm.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
 
-  hardware.cpu.amd.updateMicrocode = true;
-
   system.stateVersion = "25.05";
 }

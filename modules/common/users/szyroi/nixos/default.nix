@@ -12,7 +12,6 @@
     fzf
     curl
     wget
-    unzip
     kdePackages.ark
     thunar-archive-plugin
     age

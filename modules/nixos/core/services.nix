@@ -19,6 +19,8 @@
     blueman.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
     tumbler.enable = true; # Thumbnail support for images
+    upower.enable = true;
+    samba-wsdd.enable = true;
 
     pulseaudio.enable = false;
     pipewire = {

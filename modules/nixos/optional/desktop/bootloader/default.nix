@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   powerManagement = {
     enable = true;
-    cpuFreqGovernor = "ondemand";
+    cpuFreqGovernor = "schedutil";
   };
   hardware.cpu.amd.updateMicrocode = true;
   services.fstrim.enable = true;
@@ -16,16 +16,22 @@
   };
 
   boot = {
-    kernelParams = ["nvidia-drm.modeset=1" "pcie_aspm=off"];
+    kernelParams = [
+      "nvidia-drm.modeset=1"
+      "nvidia-drm.fbdev=1"
+      "nvidia.NVreg_EnableGpuFirmware=0"
+      "pcie_aspm=off"
+      "quiet"
+    ];
     kernelPackages = pkgs.linuxPackages_latest;
     kernel = {
       sysctl = {
         "kernel.sysrq" = 1;
         "net.ipv4.tcp_syncookies" = true;
-        "vm.swappiness" = 100;
+        "vm.swappiness" = 60;
         "vm.vfs_cache_pressure" = 50;
-        "vm.dirty_background_ratio" = 10;
-        "vm.dirty_ratio" = 30;
+        "vm.dirty_background_ratio" = 5;
+        "vm.dirty_ratio" = 20;
       };
     };
     loader = {

@@ -25,6 +25,7 @@ in {
       term = "kitty";
       insensitive = true;
       parse_search = false;
+      sort_order = "alphabetical";
 
       mode = "vertical";
       lines = 10;
