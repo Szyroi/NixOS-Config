@@ -7,11 +7,12 @@
     wl-clipboard
     syncthing
     anki
-    bitwarden-desktop
+    # bitwarden-desktop
     yazi
     thunderbird
     nautilus
     kdePackages.kate
     zellij
+    colloid-icon-theme
   ];
 }

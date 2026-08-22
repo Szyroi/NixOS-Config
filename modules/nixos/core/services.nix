@@ -36,7 +36,7 @@
       drivers = with pkgs; [
         cups-filters
         cups-browsed
-        hplipWithPlugin
+        #hplipWithPlugin
         gutenprint
       ];
     };

@@ -5,22 +5,12 @@
     ../../modules/common/users/szyroi/nixos/default.nix
     ../../modules/nixos/optional/desktop/default.nix
     inputs.silentSDDM.nixosModules.default
-    inputs.rux-compiler.nixosModules.default
   ];
-
-  services.rux = {
-    enable = true;
-    version = "dev";
-  };
 
   programs.silentSDDM = {
     enable = true;
     theme = "rei";
   };
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-39.8.10"
-  ];
 
   services.displayManager.sddm = {
     enable = true;

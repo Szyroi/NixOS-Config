@@ -8,11 +8,15 @@
   hardware.nvidia = {
     modesetting.enable = true; # Important for Wayland/Hyprland
     nvidiaSettings = true; # nvidia-settings App
-    open = false;
-    nvidiaPersistenced = true;
+    open = true;
+
+    nvidiaPersistenced = false;
+
     powerManagement.enable = true;
-    powerManagement.finegrained = true;
+    powerManagement.finegrained = false;
+
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+
     prime = {
       offload.enable = true; # for Hybrid GPU Offloading
       amdgpuBusId = "PCI:11:0:0"; # AMD iGPU

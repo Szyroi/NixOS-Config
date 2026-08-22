@@ -24,7 +24,8 @@
     steamtinkerlaunch
     unar
     tree-sitter
-    inputs.sqldeveloper.packages.${pkgs.system}.default
+    networkmanagerapplet
+    inputs.sqldeveloper.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   media = with pkgs; [
@@ -32,7 +33,7 @@
     ffmpeg
     loupe
     qbittorrent-enhanced
-    papers
+    # papers
     libreoffice-fresh
     gnome-calendar
     gnome-calculator
@@ -84,8 +85,8 @@
     haskell-language-server
 
     # C/C++
-    clang
-    clang-tools
+    clang_22
+    llvmPackages_22.clang-tools
 
     # Rust
     rust-analyzer
@@ -121,7 +122,7 @@
     nasm
 
     #C/C++
-    gcc
+    gcc16
     gdb
 
     #Rust
