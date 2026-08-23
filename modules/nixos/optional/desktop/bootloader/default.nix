@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  powerManagement = {
-    enable = true;
-    cpuFreqGovernor = "schedutil";
-  };
   hardware.cpu.amd.updateMicrocode = true;
   services.fstrim.enable = true;
   services.earlyoom.enable = true;
@@ -21,7 +17,6 @@
       "nvidia-drm.fbdev=1"
       "nvidia.NVreg_EnableGpuFirmware=0"
       "pcie_aspm=off"
-      "quiet"
     ];
     kernelPackages = pkgs.linuxPackages_latest;
     kernel = {

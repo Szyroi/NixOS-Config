@@ -9,11 +9,16 @@
 
   programs.silentSDDM = {
     enable = true;
-    theme = "rei";
+    theme = "ken";
+    settings = {
+      "LoginScreen" = {
+        background = "/home/szyroi/Pictures/PFP";
+      };
+    };
   };
 
-  security.pam.services.sddm.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.sddm.enableGnomeKeyring = true;
 
   system.stateVersion = "25.05";
 }
