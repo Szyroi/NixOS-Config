@@ -1,5 +1,5 @@
 {...}: {
   imports = [
-    ./wm/hyprland.nix
+    ../modules/nixos/core
   ];
 }

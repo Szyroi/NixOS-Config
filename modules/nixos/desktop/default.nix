@@ -1,5 +1,4 @@
 {...}: {
   imports = [
-    ./wm/hyprland.nix
   ];
 }

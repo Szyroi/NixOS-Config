@@ -6,7 +6,6 @@
     vesktop
     wl-clipboard
     anki
-    # bitwarden-desktop
     yazi
     thunderbird
     nautilus

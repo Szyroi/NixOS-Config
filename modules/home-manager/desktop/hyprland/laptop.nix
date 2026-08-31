@@ -1,31 +1,16 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }: let
   c = config.myTheme.colors;
 in {
-  home.packages = with pkgs; [
-    hyprpaper
-  ];
-
   wayland.windowManager.hyprland = {
-    enable = true;
+    enable = false;
     package = null;
     portalPackage = null;
-    configType = "hyprlang";
-    systemd = {
-      enable = true;
-      variables = ["--all"];
-      enableXdgAutostart = true;
-    };
-  };
-
-  services = {
-    hyprpaper = {
-      enable = lib.mkDefault true;
-    };
+    systemd.enable = false;
+    configType = "lua";
   };
 
   wayland.windowManager.hyprland.settings = {
@@ -34,7 +19,8 @@ in {
     ################
 
     monitor = [
-      "eDP-1, 1920x1080@60, 0x0,1, bitdepth, 10,cm,auto"
+      "desc:Samsung Electric Company LS28AG700N H4ZT200626, 3840x2160@144, auto-right, 1.5"
+      "desc:ASUSTek COMPUTER INC VG278 K5LMQS011662, 1920x1080@144, auto-left, 1"
     ];
 
     xwayland = {
@@ -58,7 +44,6 @@ in {
       "$browser"
       "vesktop"
       "fcitx5 -d"
-      "gnome-keyring-daemon --start --components=secrets,ssh,pkcs11"
     ];
     exec = [
       "easyeffects --gapplication-service"
@@ -159,6 +144,12 @@ in {
       };
     };
 
+    device = {
+      name = "logitech-usb-receiver"; # hyprctl devices
+      accel_profile = "flat";
+      sensitivity = 0.4;
+    };
+
     ###################
     ### KEYBINDINGS ###
     ###################
@@ -215,13 +206,4 @@ in {
       ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
     ];
   };
-
-  ##############################
-  ### WINDOWS AND WORKSPACES ###
-  ##############################
-
-  wayland.windowManager.hyprland.extraConfig = ''
-
-
-  '';
 }

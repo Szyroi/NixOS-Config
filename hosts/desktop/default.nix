@@ -1,10 +1,14 @@
 {inputs, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/core/default.nix
-    ../../modules/common/users/szyroi/nixos/default.nix
-    ../../modules/nixos/optional/desktop/default.nix
+    ../../devices/desktop.nix
+    ../../profiles/base.nix
+    ../../profiles/desktop.nix
+    ../../profiles/workstation.nix
+    ../../profiles/gaming.nix
   ];
+
+  networking.hostName = "desktop";
 
   programs.qylock = {
     enable = true;
