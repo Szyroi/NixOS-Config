@@ -25,8 +25,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    silentSDDM = {
-      url = "github:uiriansan/SilentSDDM";
+    qylock = {
+      url = "github:Darkkal44/qylock";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -84,7 +84,7 @@
         };
         modules = [
           nixDefaultsModule
-          inputs.silentSDDM.nixosModules.default
+          inputs.qylock.nixosModules.default
           inputs.stylix.nixosModules.stylix
 
           ./modules/nixos/core/stylix.nix
@@ -118,6 +118,7 @@
         };
         modules = [
           nixDefaultsModule
+          inputs.qylock.nixosModules.default
           inputs.stylix.nixosModules.stylix
 
           ./modules/nixos/core/stylix.nix

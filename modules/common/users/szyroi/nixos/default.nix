@@ -24,6 +24,7 @@
     unar
     tree-sitter
     networkmanagerapplet
+    quickshell
     inputs.sqldeveloper.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
@@ -40,7 +41,7 @@
     texliveFull
     seahorse
     parabolic
-    kew
+    cliamp
     pavucontrol
   ];
 
@@ -150,6 +151,7 @@
     qt6.qttools
     qt6.qtvirtualkeyboard
     qt6.qtmultimedia
+    qt6.qt5compat
   ];
 
   allPackages = system ++ media ++ language-servers ++ development;

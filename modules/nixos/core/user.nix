@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   username,
   ...
@@ -11,7 +9,7 @@
 
   users.users.${username} = {
     isNormalUser = true;
-    description = "Main User";
+    description = username;
     extraGroups = [
       "wheel"
       "networkmanager"

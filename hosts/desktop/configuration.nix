@@ -4,17 +4,13 @@
     ../../modules/nixos/core/default.nix
     ../../modules/common/users/szyroi/nixos/default.nix
     ../../modules/nixos/optional/desktop/default.nix
-    inputs.silentSDDM.nixosModules.default
   ];
 
-  programs.silentSDDM = {
+  programs.qylock = {
     enable = true;
-    theme = "ken";
-    settings = {
-      "LoginScreen" = {
-        background = "/home/szyroi/Pictures/PFP";
-      };
-    };
+    theme = "sword";
+    sddm.enable = true;
+    quickshell.enable = true;
   };
 
   services.gnome.gnome-keyring.enable = true;
