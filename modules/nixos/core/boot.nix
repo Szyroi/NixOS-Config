@@ -12,8 +12,4 @@
       timeout = 3;
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    nvtopPackages.nvidia
-  ];
 }
