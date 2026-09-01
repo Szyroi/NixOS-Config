@@ -1,5 +1,6 @@
 {username, ...}: {
   imports = [
+    ../modules/nixos/desktop/stylix.nix
     ../modules/nixos/hardware/laptop.nix
     ../modules/nixos/services/power.nix
   ];
