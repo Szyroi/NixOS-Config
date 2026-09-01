@@ -27,7 +27,9 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@v2
 
       - name: Check formatting
-        run: nix fmt -- --check
+        run: |
+          nix fmt
+          git diff --exit-code
 
       - name: Check flake
         run: nix flake check --no-update-lock-file --print-build-logs
