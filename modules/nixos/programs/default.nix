@@ -4,6 +4,5 @@
     ./development.nix
     ./gaming.nix
     ./media.nix
-    ./packages.nix
   ];
 }
