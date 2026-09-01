@@ -1,8 +1,10 @@
-{...}: {
+{username, ...}: {
   imports = [
     ../modules/nixos/hardware/laptop.nix
     ../modules/nixos/services/power.nix
-    ../modules/home-manager/desktop
+  ];
+
+  home-manager.users.${username}.imports = [
     ../modules/home-manager/desktop/hyprland/laptop.nix
   ];
 

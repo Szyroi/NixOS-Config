@@ -11,6 +11,7 @@
         CursorSize = 24;
       };
     };
+
     extraPackages = with pkgs; [
       bibata-cursors
     ];

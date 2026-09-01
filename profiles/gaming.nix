@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ../modules/nixos/programs/gaming
-    ../modules/home-manager/gaming
+    ../modules/nixos/programs/gaming.nix
   ];
 }

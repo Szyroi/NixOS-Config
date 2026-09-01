@@ -1,22 +1,22 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    publish = {
-      enable = true;
-      addresses = true;
-      workstation = true;
-    };
-  };
+{...}: {
+  services = {
+    samba-wsdd.enable = true;
 
-  services.openvpn.servers = {
-    hbrsVpn = {
-      config = "/etc/nixos/vpn/client.ovpn";
-      autoStart = false;
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      publish = {
+        enable = true;
+        addresses = true;
+        workstation = true;
+      };
+    };
+
+    openvpn.servers = {
+      hbrsVpn = {
+        config = "/etc/nixos/vpn/client.ovpn";
+        autoStart = false;
+      };
     };
   };
 

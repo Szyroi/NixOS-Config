@@ -1,8 +1,4 @@
 {...}: {
-  # HP-specific hardware configuration.
-  #
-  # Examples:
-  # hardware.cpu.intel.updateMicrocode = true;
-  # hardware.bluetooth.enable = true;
-  # boot.kernelModules = [ ... ];
+  hardware.cpu.amd.updateMicrocode = true;
+  services.xserver.videoDrivers = ["amdgpu"];
 }

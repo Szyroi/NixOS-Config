@@ -1,8 +1,11 @@
 {...}: {
   imports = [
-    ./nix/options.nix
-    ./xdg/default.nix
-    ./security/default.nix
+    ./boot.nix
+    ./kernel.nix
+    ./console.nix
+    ./locale.nix
+    ./nix-options.nix
+    ./security.nix
     ./networking.nix
     ./user.nix
   ];

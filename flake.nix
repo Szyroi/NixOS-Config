@@ -34,10 +34,12 @@
       url = "github:aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     ags = {
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nixland = {
       url = "github:Szyroi/nixland";
     };
@@ -54,52 +56,52 @@
     ...
   } @ inputs: let
     username = "szyroi";
+    system = "x86_64-linux";
 
-    supportedSystems = ["x86_64-linux"];
-    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
 
-    # pkgs für das spezifische System erstellen
-    pkgsFor = forAllSystems (system:
-      import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      });
-
-    # Global NixOS settings (System wide)
     nixDefaultsModule = {
       nixpkgs.config.allowUnfree = true;
-      nix.settings.experimental-features = ["nix-command" "flakes"];
+
+      nix.settings.experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
-  in {
-    # Formatter for nix fmt
-    formatter = forAllSystems (system: pkgsFor.${system}.alejandra);
 
-    nixosConfigurations = {
-      # ================= DESKTOP CONFIGURATION =================
+    mkHost = {host}:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
 
-      desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = {
           inherit inputs username;
         };
+
         modules = [
           nixDefaultsModule
+
           inputs.qylock.nixosModules.default
           inputs.stylix.nixosModules.stylix
 
-          ./modules/nixos/core/stylix.nix
-          ./hosts/desktop/configuration.nix
+          ./hosts/${host}
 
           home-manager.nixosModules.home-manager
+
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "hm-bak";
-              users.${username} = import ./home/desktop/home.nix;
+
+              users.${username} = import ./users/${username};
+
               extraSpecialArgs = {
                 inherit inputs username;
               };
+
               sharedModules = [
                 inputs.sops-nix.homeModules.sops
                 inputs.nixland.homeManagerModules.default
@@ -108,38 +110,20 @@
           }
         ];
       };
+  in {
+    formatter.${system} = pkgs.alejandra;
 
-      # ================= LAPTOP CONFIGURATION =================
+    nixosConfigurations = {
+      desktop = mkHost {
+        host = "desktop";
+      };
 
-      laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs username;
-        };
-        modules = [
-          nixDefaultsModule
-          inputs.qylock.nixosModules.default
-          inputs.stylix.nixosModules.stylix
+      hp-laptop = mkHost {
+        host = "hp-laptop";
+      };
 
-          ./modules/nixos/core/stylix.nix
-          ./hosts/laptop/configuration.nix
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "hm-bak";
-              users.${username} = import ./home/laptop/home.nix;
-              extraSpecialArgs = {
-                inherit inputs username;
-              };
-              sharedModules = [
-                inputs.sops-nix.homeModules.sops
-              ];
-            };
-          }
-        ];
+      framework-laptop = {
+        host = "framework-laptop";
       };
     };
   };
