@@ -8,11 +8,6 @@
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "25.05";
 
-  imports = [
-    ../../modules/home-manager/core
-    ../../modules/home-manager/desktop
-  ];
-
   sops = {
     defaultSopsFile = ../../secrets/secrets.yaml;
     age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";

@@ -6,5 +6,7 @@
 
     ./theme/gtk.nix
     ./theme/theme.nix
+
+    ./hyprland/common.nix
   ];
 }
