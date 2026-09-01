@@ -122,7 +122,7 @@
         host = "hp-laptop";
       };
 
-      framework-laptop = {
+      framework-laptop = mkHost {
         host = "framework-laptop";
       };
     };

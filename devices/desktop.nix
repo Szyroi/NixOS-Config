@@ -1,4 +1,8 @@
-{...}: {
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.nvidia
+  ];
+
   hardware.cpu.amd.updateMicrocode = true;
 
   services.xserver.videoDrivers = ["nvidia"];
