@@ -8,5 +8,6 @@
     ./security.nix
     ./networking.nix
     ./user.nix
+    ./packages.nix
   ];
 }

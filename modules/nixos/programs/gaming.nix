@@ -16,4 +16,8 @@
       protonup-ng
     ];
   };
+
+  environment.systemPackages = with pkgs; [
+    steamtinkerlaunch
+  ];
 }

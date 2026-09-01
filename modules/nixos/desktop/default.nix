@@ -4,5 +4,6 @@
     ./xdg.nix
     ./stylix.nix
     ./environment.nix
+    ./packages.nix
   ];
 }
