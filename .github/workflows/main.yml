@@ -28,8 +28,8 @@ jobs:
 
       - name: Check formatting
         run: |
-          nix fmt
-          git diff --exit-code
+          nix build .#formatter.x86_64-linux
+          ./result/bin/alejandra --check .
 
       - name: Check flake
         run: nix flake check --no-update-lock-file --print-build-logs
