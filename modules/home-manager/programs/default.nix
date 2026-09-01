@@ -1,5 +1,5 @@
 {
-  import = [
+  imports = [
     ./packages.nix
     ./zen.nix
   ];

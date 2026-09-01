@@ -5,6 +5,7 @@
   ];
 
   home-manager.users.${username}.imports = [
+    ../modules/home-manager/desktop
     ../modules/home-manager/desktop/hyprland/laptop.nix
   ];
 

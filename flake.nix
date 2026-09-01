@@ -78,6 +78,7 @@
 
         specialArgs = {
           inherit inputs username;
+          hostname = host;
         };
 
         modules = [
@@ -100,6 +101,7 @@
 
               extraSpecialArgs = {
                 inherit inputs username;
+                hostname = host;
               };
 
               sharedModules = [
