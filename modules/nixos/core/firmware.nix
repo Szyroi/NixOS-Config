@@ -1,4 +1,4 @@
 {...}: {
   services.fwupd.enable = true;
-  services. enableRedistributableFirmware = true;
+  hardware.enableRedistributableFirmware = true;
 }
