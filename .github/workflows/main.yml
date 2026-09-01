@@ -32,7 +32,7 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@v2
 
       - name: Format Nix files
-        run: nix fmt
+        run: nix run .#formatter.x86_64-linux -- $(find . -name '*.nix' -type f)
 
       - name: Commit formatting changes
         uses: stefanzweifel/git-auto-commit-action@v7
