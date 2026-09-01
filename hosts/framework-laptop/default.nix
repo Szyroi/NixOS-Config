@@ -9,4 +9,8 @@
     ../../profiles/workstation.nix
     ../../profiles/gaming.nix
   ];
+
+  networking.hostName = "framework";
+
+  system.stateVersion = "26.11";
 }

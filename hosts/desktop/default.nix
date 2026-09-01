@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
     ../../devices/desktop.nix
@@ -8,7 +8,7 @@
     ../../profiles/gaming.nix
   ];
 
-  networking.hostName = "desktop";
+  networking.hostName = "nixos";
 
   programs.qylock = {
     enable = true;

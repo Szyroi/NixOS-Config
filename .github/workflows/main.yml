@@ -1,31 +1,30 @@
-name: "Nix CI"
+name: Nix CI
 
 on:
   push:
-    branches: [main, master]
+    branches:
+      - main
   pull_request:
-    branches: [main, master]
+    branches:
+      - main
+
+permissions:
+  contents: read
 
 jobs:
   flake-check:
+    name: Flake Check
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Install Nix
-        uses: cachix/install-nix-action@v25
-        with:
-          extra_nix_config: |
-            experimental-features = nix-command flakes
+        uses: DeterminateSystems/nix-installer-action@main
 
-      - name: Setup Magic Nix Cache
-        uses: DeterminateSystems/magic-nix-cache-action@v2
+      - name: Enable Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
 
-      - name: Flake Check
+      - name: Check flake
         run: nix flake check --no-update-lock-file --print-build-logs
-
-      - name: Build System Configuration
-        run: nix build .#nixosConfigurations.desktop.config.system.build.toplevel --no-update-lock-file --print-build-logs

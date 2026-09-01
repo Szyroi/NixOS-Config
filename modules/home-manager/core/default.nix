@@ -4,6 +4,6 @@
     ./kitty.nix
     ./starship.nix
     ./fastfetch.nix
-    ./shell/sh.nix
+    ./shell.nix
   ];
 }

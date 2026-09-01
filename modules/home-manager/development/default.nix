@@ -1,7 +1,7 @@
 {
   imports = [
     ./helix.nix
-    ./nixvim.nix
+    #./nixvim.nix
     ./zed.nix
   ];
 }
