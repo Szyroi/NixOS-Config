@@ -1,5 +1,15 @@
-{...}: {
-  imports = [
-    ../modules/nixos/hardware/fingerprint.nix
+{username, ...}: {
+  home-manager.users.${username}.imports = [
+    ../modules/home-manager/desktop/hyprland/framework-laptop.nix
   ];
+
+  hardware.cpu.amd.updateMicrocode = true;
+  services.xserver.videoDrivers = ["amdgpu"];
+
+  services.fprintd.enable = true;
+
+  security.pam.services = {
+    login.fprintAuth = true;
+    sudo.fprintAuth = true;
+  };
 }

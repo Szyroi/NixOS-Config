@@ -1,7 +1,8 @@
 {
   imports = [
+    ./vim.nix
     ./helix.nix
-    #./nixvim.nix
     ./zed.nix
+    #./nixvim.nix
   ];
 }
