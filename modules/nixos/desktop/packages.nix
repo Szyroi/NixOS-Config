@@ -1,6 +1,10 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
-    quickshell
+    inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     kdePackages.ark
     pavucontrol
     networkmanagerapplet
