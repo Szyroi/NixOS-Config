@@ -6,7 +6,6 @@
   environment.systemPackages = with pkgs; [
     age
     sops
-    gnome-keyring
     libsecret
     keepassxc
   ];

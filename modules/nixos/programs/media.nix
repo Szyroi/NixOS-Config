@@ -4,7 +4,7 @@
     ffmpeg
     loupe
     qbittorrent-enhanced
-    libreoffice-fresh
+    libreoffice-stable
     gnome-calendar
     gnome-calculator
     ausweisapp

@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,7 +66,10 @@
       ];
     };
 
-    mkHost = {host}:
+    mkHost = {
+      host,
+      extraModules ? [],
+    }:
       nixpkgs.lib.nixosSystem {
         inherit system;
 
@@ -71,36 +78,38 @@
           hostname = host;
         };
 
-        modules = [
-          nixDefaultsModule
+        modules =
+          [
+            nixDefaultsModule
 
-          inputs.qylock.nixosModules.default
-          inputs.stylix.nixosModules.stylix
+            inputs.qylock.nixosModules.default
+            inputs.stylix.nixosModules.stylix
 
-          ./hosts/${host}
+            ./hosts/${host}
 
-          home-manager.nixosModules.home-manager
+            home-manager.nixosModules.home-manager
 
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "hm-bak";
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "hm-bak";
 
-              users.${username} = import ./users/${username};
+                users.${username} = import ./users/${username};
 
-              extraSpecialArgs = {
-                inherit inputs username;
-                hostname = host;
+                extraSpecialArgs = {
+                  inherit inputs username;
+                  hostname = host;
+                };
+
+                sharedModules = [
+                  inputs.sops-nix.homeModules.sops
+                  inputs.nixland.homeManagerModules.default
+                ];
               };
-
-              sharedModules = [
-                inputs.sops-nix.homeModules.sops
-                inputs.nixland.homeManagerModules.default
-              ];
-            };
-          }
-        ];
+            }
+          ]
+          ++ extraModules;
       };
   in {
     formatter.${system} = pkgs.alejandra;
@@ -116,6 +125,9 @@
 
       framework-laptop = mkHost {
         host = "framework-laptop";
+        extraModules = [
+          inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+        ];
       };
     };
   };
