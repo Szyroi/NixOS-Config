@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   username,
   ...
 }: {
@@ -17,10 +18,11 @@
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaSettings = true;
-    open = false;
+    open = true;
     nvidiaPersistenced = false;
     powerManagement.enable = true;
     powerManagement.finegrained = false;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
 
   boot.kernelParams = [
