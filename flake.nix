@@ -81,14 +81,10 @@
         modules =
           [
             nixDefaultsModule
-
             inputs.qylock.nixosModules.default
             inputs.stylix.nixosModules.stylix
-
             ./hosts/${host}
-
             home-manager.nixosModules.home-manager
-
             {
               home-manager = {
                 useGlobalPkgs = true;
