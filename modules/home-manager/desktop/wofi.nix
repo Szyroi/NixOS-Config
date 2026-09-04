@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
+{config, ...}: let
   c = config.lib.stylix.colors.withHashtag;
 in {
   programs.wofi = {

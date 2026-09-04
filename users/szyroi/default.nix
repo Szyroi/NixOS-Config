@@ -14,6 +14,12 @@
     defaultSopsFormat = "yaml";
   };
 
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+    setSessionVariables = false;
+  };
+
   home.pointerCursor = {
     enable = true;
     package = pkgs.bibata-cursors;

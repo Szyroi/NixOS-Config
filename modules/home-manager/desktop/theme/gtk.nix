@@ -6,8 +6,8 @@
   gtk = {
     enable = true;
     iconTheme = {
-      name = lib.mkDefault "Adwaita";
-      package = lib.mkDefault pkgs.adwaita-icon-theme;
+      name = lib.mkDefault "Colloid-Dark";
+      package = lib.mkDefault pkgs.colloid-icon-theme;
     };
 
     gtk3.extraConfig."gtk-application-prefer-dark-theme" = 1;
@@ -19,5 +19,7 @@
     platformTheme.name = lib.mkDefault "gtk";
   };
 
-  home.packages = with pkgs; [papirus-icon-theme];
+  home.packages = with pkgs; [
+    adwaita-icon-theme
+  ];
 }

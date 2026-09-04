@@ -8,8 +8,6 @@
     gnome-calendar
     gnome-calculator
     ausweisapp
-    texliveFull
-    seahorse
     parabolic
     cliamp
   ];

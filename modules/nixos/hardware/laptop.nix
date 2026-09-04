@@ -13,8 +13,13 @@
     };
   };
 
+  systemd.sleep.settings.Sleep = {
+    HibernateDelaySec = "2h";
+  };
+
   services.logind.settings.Login = {
-    HandleLidSwitch = "suspend";
+    HandleLidSwitch = "suspend-then-hibernate";
+    HandleLidSwitchExternalPower = "ignore";
     KillUserProcesses = false;
   };
 }

@@ -2,9 +2,9 @@
   imports = [
     ./stylix.nix
     ./wofi.nix
-    ./hyprpaper.nix
+    ./swaync.nix
     ./theme/gtk.nix
     ./theme/theme.nix
-    ./hyprland/common.nix
+    ./hyprland/default.nix
   ];
 }
