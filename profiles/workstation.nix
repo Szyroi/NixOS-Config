@@ -1,5 +1,6 @@
 {username, ...}: {
   imports = [
+    ../modules/nixos/virtualisation
     ../modules/nixos/programs/development.nix
   ];
 

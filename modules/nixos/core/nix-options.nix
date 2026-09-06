@@ -1,4 +1,4 @@
-_: {
+{username, ...}: {
   nix = {
     enable = true;
     daemonCPUSchedPolicy = "idle";
@@ -8,9 +8,10 @@ _: {
         "nix-command"
         "flakes"
       ];
-      max-jobs = "auto";
       cores = 0;
-      trusted-users = ["root" "szyroi"];
+      max-jobs = "auto";
+      max-substitution-jobs = 16;
+      trusted-users = ["root" "${username}"];
       substituters = [
         "https://cache.nixos.org"
         "https://nix-community.cachix.org"
@@ -22,13 +23,13 @@ _: {
     };
     gc = {
       automatic = true;
-      dates = "weekly";
+      dates = "03:00";
       options = "--delete-older-than 7d";
     };
 
     optimise = {
       automatic = true;
-      dates = ["weekly"];
+      dates = ["03:30"];
     };
   };
 }
